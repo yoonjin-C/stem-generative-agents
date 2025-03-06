@@ -135,7 +135,6 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_root")
 # 'http://127.0.0.1:8080'
 # ]
 
-ALLOWED_HOSTS = [*] 
                  
 # CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ALLOW_CREDENTIALS = False
