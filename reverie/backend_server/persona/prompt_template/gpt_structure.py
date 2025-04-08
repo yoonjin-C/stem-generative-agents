@@ -218,7 +218,7 @@ def GPT_request(prompt, gpt_parameter):
                 presence_penalty=gpt_parameter["presence_penalty"],
                 stream=gpt_parameter["stream"],
                 stop=gpt_parameter["stop"],)
-    return response.choices[0].text
+    return ["choices"][0]["message"]["content"]
   except Exception as e:
     print(f"Error occurred: {str(e)}")
     return f"ERROR: {str(e)}"
