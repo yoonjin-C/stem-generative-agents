@@ -210,7 +210,7 @@ def GPT_request(prompt, gpt_parameter):
   try: 
     response = openai.Completion.create(
                 model=gpt_parameter["engine"],
-                prompt=prompt,
+                messages=[{"role": "system", "content": prompt}],    
                 temperature=gpt_parameter["temperature"],
                 max_tokens=gpt_parameter["max_tokens"],
                 top_p=gpt_parameter["top_p"],
@@ -219,9 +219,9 @@ def GPT_request(prompt, gpt_parameter):
                 stream=gpt_parameter["stream"],
                 stop=gpt_parameter["stop"],)
     return response.choices[0].text
-  except: 
-    print ("TOKEN LIMIT EXCEEDED")
-    return "TOKEN LIMIT EXCEEDED"
+  except Exception as e:
+    print(f"Error occurred: {str(e)}")
+    return f"ERROR: {str(e)}"
 
 
 def generate_prompt(curr_input, prompt_lib_file): 
