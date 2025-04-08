@@ -87,10 +87,7 @@ print(bedrock_request(prompt))
 
 
 
-
-
-
-# # Original Code
+# Original Code
 # """
 # Author: Joon Sung Park (joonspk@stanford.edu)
 
@@ -99,47 +96,35 @@ print(bedrock_request(prompt))
 # """
 # import json
 # import random
-# import time
-# import requests  # Bedrock API 호출을 위한 requests 모듈 추가
+# import openai
+# import time 
 
 # from utils import *
-
-# # Bedrock API 설정
-# bedrock_api_url = "https://api.bedrock.aws.amazon.com"  # Bedrock API 엔드포인트
-# bedrock_api_key = "YOUR_BEDROCK_API_KEY"  # Bedrock API 키
+# openai.api_key = openai_api_key
 
 # def ChatGPT_request(prompt): 
-#     """
-#     Given a prompt, make a request to Amazon Bedrock server and returns the response. 
-#     ARGS:
-#         prompt: a str prompt
-#     RETURNS: 
-#         a str of Bedrock's response. 
-#     """
-#     headers = {
-#         "Authorization": f"Bearer {bedrock_api_key}",
-#         "Content-Type": "application/json"
-#     }
-    
-#     data = {
-#         "input": prompt,
-#         "model": "your-model-name",  # 사용할 모델 이름으로 변경
-#         "parameters": {
-#             "max_tokens": 150,  # 필요한 경우 조정
-#             "temperature": 0.7  # 필요한 경우 조정
-#         }
-#     }
-    
-#     try: 
-#         response = requests.post(f"{bedrock_api_url}/v1/models/your-model-name/generate", 
-#                                  headers=headers, 
-#                                  json=data)
-#         response.raise_for_status()  # HTTP 오류 발생 시 예외 발생
-#         return response.json()["output"]  # Bedrock의 응답에서 필요한 데이터 추출
-    
-#     except Exception as e: 
-#         print("Bedrock API ERROR:", e)
-#         return "Bedrock API ERROR"
+#   """
+#   Given a prompt and a dictionary of GPT parameters, make a request to OpenAI
+#   server and returns the response. 
+#   ARGS:
+#     prompt: a str prompt
+#     gpt_parameter: a python dictionary with the keys indicating the names of  
+#                    the parameter and the values indicating the parameter 
+#                    values.   
+#   RETURNS: 
+#     a str of GPT-3's response. 
+#   """
+#   # temp_sleep()
+#   try: 
+#     completion = openai.ChatCompletion.create(
+#     model="gpt-3.5-turbo", 
+#     messages=[{"role": "user", "content": prompt}]
+#     )
+#     return completion["choices"][0]["message"]["content"]
+  
+#   except: 
+#     print ("ChatGPT ERROR")
+#     return "ChatGPT ERROR"
 
 # prompt = """
 # ---
@@ -167,6 +152,11 @@ print(bedrock_request(prompt))
 # """
 
 # print (ChatGPT_request(prompt))
+
+
+
+
+
 
 
 
