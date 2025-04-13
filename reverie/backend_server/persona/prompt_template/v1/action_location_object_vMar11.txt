@@ -10,7 +10,13 @@ Variables:
 !<INPUT 8>! -- Persona's current sector
 
 <commentblockmarker>###</commentblockmarker>
-CRITICAL INSTRUCTION: This is a rule-based selection task. You MUST choose from the given options ONLY listed in (MUST pick one of {...})
+TASK: Choose the most appropriate location for the given action, BUT ONLY from the provided options.
+
+Rules:
+1. ONLY choose from the explicitly provided options
+2. Select the most suitable location for the action
+3. If multiple locations are provided, choose the most appropriate one
+4. If only one location is available, you MUST choose that location regardless of the action
 
 Example 1:
 Person is in bedroom in Person's house.
