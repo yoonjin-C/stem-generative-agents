@@ -30,6 +30,7 @@ IMPORTANT RULES:
 1. VALID OPTIONS: {!<INPUT 8>!} ONLY
 2. SYSTEM WILL FAIL if any other location is chosen
 3. MUST SELECT EXACTLY from: {!<INPUT 8>!}
+4. Do not include brackets or special characters 
 
 !<INPUT 0>! is going to !<INPUT 1>! that has the following areas: {!<INPUT 2>!}
 !<INPUT 3>! is !<INPUT 4>!. For !<INPUT 5>!, !<INPUT 6>! should go to the following area in !<INPUT 7>! 
