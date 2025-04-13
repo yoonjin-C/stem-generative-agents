@@ -74,9 +74,9 @@ def Bedrock4_request(prompt):
     response_body = json.loads(completion.get('body').read())
     return response_body.get('content')[0].get('text', '')
   
-  except:
-    print ("Bedrock ERROR") 
-    return "Bedrock ERROR"
+  except Exception as e:
+    print(f"Bedrock ERROR: {str(e)}") 
+    return f"Bedrock ERROR: {str(e)}"
 
 def Bedrock_request(prompt): 
   """
@@ -106,9 +106,9 @@ def Bedrock_request(prompt):
     response_body = json.loads(completion.get('body').read())
     return response_body.get('content')[0].get('text', '')
   
-  except:
-    print ("Bedrock ERROR") 
-    return "Bedrock ERROR"
+  except Exception as e:
+    print(f"Bedrock ERROR: {str(e)}") 
+    return f"Bedrock ERROR: {str(e)}"
 
 
 def Bedrock4_safe_generate_response(prompt, 
@@ -218,38 +218,58 @@ def Bedrock_safe_generate_response_OLD(prompt,
 # ============================================================================
 
 def Bedrock_request(prompt, bedrock_parameter): 
-  """
-  Given a prompt and a dictionary of Bedrock parameters, make a request to Bedrock
-  server and returns the response. 
-  ARGS:
-    prompt: a str prompt
-    bedrock_parameter: a python dictionary with the parameter values   
-  RETURNS: 
-    a str response from the model. 
-  """
-  temp_sleep()
-  try: 
-    completion = bedrock.invoke_model(
-      modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
-      body=json.dumps({
-        "anthropic_version": "bedrock-2023-05-31",
-        "max_tokens": bedrock_parameter["max_tokens"],
-        "temperature": bedrock_parameter["temperature"],
-        "top_p": bedrock_parameter["top_p"],
-        "stop_sequences": bedrock_parameter["stop"] if "stop" in bedrock_parameter else ["\n"],
-        "messages": [
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ]
-      })
-    )
-    response_body = json.loads(completion.get('body').read())
-    return response_body.get('content')[0].get('text', '')
-  except Exception as e:
-    print(f"Error occurred: {str(e)}")
-    return f"ERROR: {str(e)}"
+    """
+    Given a prompt and a dictionary of Bedrock parameters, make a request to Bedrock
+    server and returns the response. 
+    ARGS:
+        prompt: a str prompt
+        bedrock_parameter: a python dictionary with the parameter values   
+    RETURNS: 
+        a str response from the model. 
+    """
+    temp_sleep()
+    try: 
+        # Create request body with required structure
+        request_body = {
+            "anthropic_version": "bedrock-2023-05-31",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        }
+        
+        # Add optional parameters if they exist in bedrock_parameter
+        if "temperature" in bedrock_parameter:
+            request_body["temperature"] = bedrock_parameter["temperature"]
+        if "top_p" in bedrock_parameter:
+            request_body["top_p"] = bedrock_parameter["top_p"]
+        if "max_tokens" in bedrock_parameter:
+            request_body["max_tokens"] = bedrock_parameter["max_tokens"]
+            
+        # Remove stop sequences handling entirely unless explicitly needed
+        # If you need stop sequences, uncomment and modify this section:
+        '''
+        if "stop" in bedrock_parameter and bedrock_parameter["stop"]:
+            valid_stop_sequences = [
+                seq for seq in bedrock_parameter["stop"] 
+                if seq and isinstance(seq, str) and seq.strip()
+            ]
+            if valid_stop_sequences:
+                request_body["stop_sequences"] = valid_stop_sequences
+        '''
+
+        completion = bedrock.invoke_model(
+            modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
+            body=json.dumps(request_body)
+        )
+        
+        response_body = json.loads(completion.get('body').read())
+        return response_body.get('content')[0].get('text', '')
+    except Exception as e:
+        print(f"Error occurred: {str(e)}")
+        return f"ERROR: {str(e)}"
 
 
 def generate_prompt(curr_input, prompt_lib_file): 
