@@ -14,7 +14,7 @@ CRITICAL INSTRUCTION: You MUST ONLY choose from the options listed in (MUST pick
 
 Example 1:
 Person is in bedroom in Person's house.
-Person is going to Person's house that has the following areas: {kitchen,  bedroom, bathroom}
+Person is going to Person's house that has the following areas: {bedroom, bathroom}
 Stay in the current area if the activity can be done there. Never go into other people's rooms unless necessary.
 For sleeping, Person should go to the following area in Person's house:
 Answer: bedroom
@@ -28,9 +28,9 @@ Answer: cafe
 ---
 
 !<INPUT 0>! is going to !<INPUT 1>! that has the following areas: {!<INPUT 2>!}
-IMPORTANT INSTRUCTIONS:
-* You MUST ONLY choose from the options listed in (MUST pick one of {...})
-* NEVER go into other people's rooms unless necessary.
-* Stay in the current area if the activity can be done there.
 !<INPUT 3>! is !<INPUT 4>!. For !<INPUT 5>!, !<INPUT 6>! should go to the following area in !<INPUT 7>! (MUST pick one of {!<INPUT 8>!}):
 Answer:
+
+* NEVER go into other people's rooms unless necessary.
+* Stay in the current area if the activity can be done there.
+* You MUST ONLY choose from the options listed in (MUST pick one of {...})
