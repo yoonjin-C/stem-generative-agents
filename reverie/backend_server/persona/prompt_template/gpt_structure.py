@@ -13,7 +13,7 @@ from utils import *
 
 bedrock = boto3.client('bedrock-runtime', region_name='us-west-2')
 
-def temp_sleep(seconds=0.2):
+def temp_sleep(seconds=0.5):
   time.sleep(seconds)
 
 def Bedrock_single_request(prompt):
