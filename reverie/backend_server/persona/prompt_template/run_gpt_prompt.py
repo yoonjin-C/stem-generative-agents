@@ -701,55 +701,25 @@ def run_bedrock_prompt_action_arena(action_description,
     return prompt_input
 
   def __func_clean_up(bedrock_response, prompt=""):
-        try:
-            # 유효한 선택지 추출
-            x = f"{act_world}:{act_sector}"
-            valid_arenas = [i.strip() for i in persona.s_mem.get_str_accessible_sector_arenas(x).split(",")]
-            
-            # 응답 정리
-            cleaned_response = bedrock_response.split("}")[0].strip()
-            
-            # 응답이 유효한지 확인
-            if cleaned_response not in valid_arenas:
-                print(f"Invalid arena: {cleaned_response}. Valid options: {valid_arenas}")
-                return valid_arenas[0]  # 첫 번째 유효한 선택지 반환
+      try:
+          # 유효한 선택지 추출
+          x = f"{act_world}:{act_sector}"
+          valid_arenas = [i.strip() for i in persona.s_mem.get_str_accessible_sector_arenas(x).split(",")]
+          
+          # 응답 정리
+          cleaned_response = bedrock_response.split("}")[0].strip()
+          
+          # 응답이 유효한지 확인
+          if cleaned_response not in valid_arenas:
+              print(f"Invalid arena: {cleaned_response}. Valid options: {valid_arenas}")
+              return valid_arenas[0]  # 첫 번째 유효한 선택지 반환
                 
-            return cleaned_response
-        except Exception as e:
-            print(f"Clean up error: {e}")
-            return get_fail_safe()
-        try:
-            # 유효한 선택지 추출
-            x = f"{act_world}:{act_sector}"
-            valid_arenas = [i.strip() for i in persona.s_mem.get_str_accessible_sector_arenas(x).split(",")]
-            
-            # 응답 정리
-            cleaned_response = bedrock_response.split("}")[0].strip()
-            
-            # 응답이 유효한지 확인
-            if cleaned_response not in valid_arenas:
-                print(f"Invalid arena: {cleaned_response}. Valid options: {valid_arenas}")
-                return valid_arenas[0]  # 첫 번째 유효한 선택지 반환
-                
-            return cleaned_response
-        except Exception as e:
-            print(f"Clean up error: {e}")
-            return get_fail_safe()
+          return cleaned_response
+      except Exception as e:
+          print(f"Clean up error: {e}")
+          return get_fail_safe()
 
   def __func_validate(bedrock_response, prompt=""): 
-        if len(bedrock_response.strip()) < 1: 
-            return False
-        if "}" not in bedrock_response:
-            return False
-        if "," in bedrock_response: 
-            return False
-            
-        # 추가: 유효한 선택지인지 확인
-        cleaned = bedrock_response.split("}")[0].strip()
-        x = f"{act_world}:{act_sector}"
-        valid_arenas = [i.strip() for i in persona.s_mem.get_str_accessible_sector_arenas(x).split(",")]
-        return cleaned in valid_arenas
-
         if len(bedrock_response.strip()) < 1: 
             return False
         if "}" not in bedrock_response:
