@@ -13,11 +13,11 @@ Variables:
 CRITICAL INSTRUCTION: You MUST ONLY choose from the options listed in (MUST pick one of {...})
 
 Example 1:
-Jane Anderson is in kitchen in Jane Anderson's house.
-Jane Anderson is going to Jane Anderson's house that has the following areas: {kitchen,  bedroom, bathroom}
+Person is in bedroom in Person's house.
+Person is going to Person's house that has the following areas: {kitchen,  bedroom, bathroom}
 Stay in the current area if the activity can be done there. Never go into other people's rooms unless necessary.
-For cooking, Jane Anderson should go to the following area in Jane Anderson's house:
-Answer: kitchen
+For sleeping, Person should go to the following area in Person's house:
+Answer: bedroom
 ---
 Example 2:
 Tom Watson is in common room in Tom Watson's apartment. 
