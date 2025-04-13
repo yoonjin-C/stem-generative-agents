@@ -13,7 +13,7 @@ from utils import *
 
 bedrock = boto3.client('bedrock-runtime', region_name='us-west-2')
 
-def temp_sleep(seconds=2.0):
+def temp_sleep(seconds=1.0):
   time.sleep(seconds)
 
 def Bedrock_single_request(prompt):
@@ -21,7 +21,7 @@ def Bedrock_single_request(prompt):
 
   try:
       completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
+          modelId="anthropic.claude-3-haiku-20240307-v1:0",
           body=json.dumps({
             "anthropic_version": "bedrock-2023-05-31",
             "max_tokens": 2048,
@@ -58,7 +58,7 @@ def Bedrock4_request(prompt):
 
   try:
     completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
+          modelId="anthropic.claude-3-haiku-20240307-v1:0",
           body=json.dumps({
             "anthropic_version": "bedrock-2023-05-31",
             "max_tokens": 2048,
@@ -90,7 +90,7 @@ def Bedrock_request(prompt):
   temp_sleep()
   try:
     completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
+          modelId="anthropic.claude-3-haiku-20240307-v1:0",
           body=json.dumps({
             "anthropic_version": "bedrock-2023-05-31",
             "max_tokens": 2048,
@@ -261,7 +261,7 @@ def Bedrock_request(prompt, bedrock_parameter):
         '''
 
         completion = bedrock.invoke_model(
-            modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
+            modelId="anthropic.claude-3-haiku-20240307-v1:0",
             body=json.dumps(request_body)
         )
         
