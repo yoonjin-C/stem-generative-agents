@@ -29,7 +29,7 @@ Answer: cafe
 
 !<INPUT 0>! is going to !<INPUT 1>! that has the following areas: {!<INPUT 2>!}
 IMPORTANT INSTRUCTIONS:
-* NEVER suggest areas that are not in the given options.
+* You MUST ONLY choose from the options listed in (MUST pick one of {...})
 * NEVER go into other people's rooms unless necessary.
 * Stay in the current area if the activity can be done there.
 !<INPUT 3>! is !<INPUT 4>!. For !<INPUT 5>!, !<INPUT 6>! should go to the following area in !<INPUT 7>! (MUST pick one of {!<INPUT 8>!}):
