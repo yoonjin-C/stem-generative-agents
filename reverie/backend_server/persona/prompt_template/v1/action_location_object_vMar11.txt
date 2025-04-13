@@ -26,13 +26,13 @@ Stay in the current area if the activity can be done there. Never go into other 
 For getting coffee, Tom Watson should go to the following area in Hobbs Cafe:
 Answer: cafe
 ---
-* NEVER go into other people's rooms unless necessary.
-* Stay in the current area if the activity can be done there.
-* You MUST ONLY choose from the options listed in (MUST pick one of {...})
-* NEVER think about other options not listed in (MUST pick one of {...})
+IMPORTANT RULES:
+1. VALID OPTIONS: {!<INPUT 8>!} ONLY
+2. SYSTEM WILL FAIL if any other location is chosen
+3. MUST SELECT EXACTLY from: {!<INPUT 8>!}
 
 !<INPUT 0>! is going to !<INPUT 1>! that has the following areas: {!<INPUT 2>!}
 !<INPUT 3>! is !<INPUT 4>!. For !<INPUT 5>!, !<INPUT 6>! should go to the following area in !<INPUT 7>! 
-You MUST pick one of option listed in {!<INPUT 8>!}
+Answer should be one of option listed in {!<INPUT 8>!}
 Answer:
 
