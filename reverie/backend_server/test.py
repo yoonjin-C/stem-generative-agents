@@ -36,14 +36,20 @@ def Bedrock_request(prompt):
         bedrock_client = get_bedrock_client()
 
         # Using Claude model (you can change to other models available in Bedrock)
-        model_id = "anthropic.claude-v2:1"  # or another model ID from Bedrock
+        model_id = "anthropic.claude-3-5-sonnet-20241022-v2:0"  # or another model ID from Bedrock
         
         # Prepare the request body
         body = json.dumps({
-            "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
+            "anthropic_version": "bedrock-2023-05-31",
             "max_tokens_to_sample": 2000,
             "temperature": 0.7,
-            "top_p": 1
+            "top_p": 1,
+            "messages": [
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
         })
 
         # Make the request to Bedrock
@@ -54,7 +60,7 @@ def Bedrock_request(prompt):
         
         # Parse the response
         response_body = json.loads(response.get('body').read())
-        return response_body.get('completion', '')
+        return response_body.get('content')[0].get('text', '')
 
     except Exception as e:
         print("Bedrock API ERROR:", e)

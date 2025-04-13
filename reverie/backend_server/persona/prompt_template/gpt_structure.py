@@ -21,15 +21,21 @@ def Bedrock_single_request(prompt):
 
   try:
       completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-v2:1",
+          modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
           body=json.dumps({
-            "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
+            "anthropic_version": "bedrock-2023-05-31",
             "max_tokens_to_sample": 2048,
-            "temperature": 0
+            "temperature": 0,
+            "messages": [
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ]
           })
      )
-      response = json.loads(completion.get('body').read())
-      return response.get('completion', '')
+      response_body = json.loads(completion.get('body').read())
+      return response_body.get('content')[0].get('text', '')
         
   except Exception as e:
       print(f"Error in Bedrock request: {e}")
@@ -52,15 +58,21 @@ def Bedrock4_request(prompt):
 
   try:
     completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-v2:1",
+          modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
           body=json.dumps({
-            "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
+            "anthropic_version": "bedrock-2023-05-31",
             "max_tokens_to_sample": 2048,
-            "temperature": 0
+            "temperature": 0,
+            "messages": [
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ]
           })
     )
-    response = json.loads(completion.get('body').read())
-    return response.get('completion', '')
+    response_body = json.loads(completion.get('body').read())
+    return response_body.get('content')[0].get('text', '')
   
   except:
     print ("Bedrock ERROR") 
@@ -78,15 +90,21 @@ def Bedrock_request(prompt):
   temp_sleep()
   try:
     completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-v2:1",
+          modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
           body=json.dumps({
-            "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
+            "anthropic_version": "bedrock-2023-05-31",
             "max_tokens_to_sample": 2048,
-            "temperature": 0
+            "temperature": 0,
+            "messages": [
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ]
           })
     )
-    response = json.loads(completion.get('body').read())
-    return response.get('completion', '')
+    response_body = json.loads(completion.get('body').read())
+    return response_body.get('content')[0].get('text', '')
   
   except:
     print ("Bedrock ERROR") 
@@ -212,17 +230,23 @@ def Bedrock_request(prompt, bedrock_parameter):
   temp_sleep()
   try: 
     completion = bedrock.invoke_model(
-      modelId="anthropic.claude-v2:1",
+      modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
       body=json.dumps({
-        "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
+        "anthropic_version": "bedrock-2023-05-31",
         "max_tokens_to_sample": bedrock_parameter["max_tokens"],
         "temperature": bedrock_parameter["temperature"],
         "top_p": bedrock_parameter["top_p"],
-        "stop_sequences": bedrock_parameter["stop"] if "stop" in bedrock_parameter else []
+        "stop_sequences": bedrock_parameter["stop"] if "stop" in bedrock_parameter else [],
+        "messages": [
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ]
       })
     )
-    response = json.loads(completion.get('body').read())
-    return response.get('completion', '')
+    response_body = json.loads(completion.get('body').read())
+    return response_body.get('content')[0].get('text', '')
   except Exception as e:
     print(f"Error occurred: {str(e)}")
     return f"ERROR: {str(e)}"
