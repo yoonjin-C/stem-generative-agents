@@ -10,7 +10,7 @@ Variables:
 !<INPUT 8>! -- Persona's current sector
 
 <commentblockmarker>###</commentblockmarker>
-CRITICAL INSTRUCTION: You MUST ONLY choose from the options listed in (MUST pick one of {...})
+CRITICAL INSTRUCTION: This is a rule-based selection task. You MUST choose from the given options ONLY listed in (MUST pick one of {...})
 
 Example 1:
 Person is in bedroom in Person's house.
@@ -34,3 +34,4 @@ Answer:
 * NEVER go into other people's rooms unless necessary.
 * Stay in the current area if the activity can be done there.
 * You MUST ONLY choose from the options listed in (MUST pick one of {...})
+* NEVER think about other options not listed in (MUST pick one of {...})
