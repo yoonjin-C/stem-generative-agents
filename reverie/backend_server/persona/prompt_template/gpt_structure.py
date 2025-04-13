@@ -24,7 +24,7 @@ def Bedrock_single_request(prompt):
           modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
           body=json.dumps({
             "anthropic_version": "bedrock-2023-05-31",
-            "max_tokens_to_sample": 2048,
+            "max_tokens": 2048,
             "temperature": 0,
             "messages": [
                     {
@@ -61,7 +61,7 @@ def Bedrock4_request(prompt):
           modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
           body=json.dumps({
             "anthropic_version": "bedrock-2023-05-31",
-            "max_tokens_to_sample": 2048,
+            "max_tokens": 2048,
             "temperature": 0,
             "messages": [
                     {
@@ -93,7 +93,7 @@ def Bedrock_request(prompt):
           modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
           body=json.dumps({
             "anthropic_version": "bedrock-2023-05-31",
-            "max_tokens_to_sample": 2048,
+            "max_tokens": 2048,
             "temperature": 0,
             "messages": [
                     {
@@ -233,7 +233,7 @@ def Bedrock_request(prompt, bedrock_parameter):
       modelId="anthropic.claude-3-5-sonnet-20241022-v2:0",
       body=json.dumps({
         "anthropic_version": "bedrock-2023-05-31",
-        "max_tokens_to_sample": bedrock_parameter["max_tokens"],
+        "max_tokens": bedrock_parameter["max_tokens"],
         "temperature": bedrock_parameter["temperature"],
         "top_p": bedrock_parameter["top_p"],
         "stop_sequences": bedrock_parameter["stop"] if "stop" in bedrock_parameter else [],
