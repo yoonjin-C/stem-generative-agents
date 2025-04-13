@@ -103,13 +103,13 @@ print(Bedrock_request(prompt))
 # from utils import *
 # openai.api_key = openai_api_key
 
-# def ChatGPT_request(prompt): 
+# def Bedrock_request(prompt): 
 #   """
 #   Given a prompt and a dictionary of GPT parameters, make a request to OpenAI
 #   server and returns the response. 
 #   ARGS:
 #     prompt: a str prompt
-#     gpt_parameter: a python dictionary with the keys indicating the names of  
+#     bedrock_parameter: a python dictionary with the keys indicating the names of  
 #                    the parameter and the values indicating the parameter 
 #                    values.   
 #   RETURNS: 
@@ -152,7 +152,7 @@ print(Bedrock_request(prompt))
 # {"output": "[["Jane Doe", "Hi!"], ["John Doe", "Hello there!"] ... ]"}
 # """
 
-# print (ChatGPT_request(prompt))
+# print (Bedrock_request(prompt))
 
 
 

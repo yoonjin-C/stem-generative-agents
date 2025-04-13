@@ -606,7 +606,7 @@ if __name__ == '__main__':
   # rs.open_server()
 
   origin = input("Enter the name of the forked simulation: ").strip()
-  target = input("Enter the name of the new simulation: ").strip()
+  target = input("새로운 시뮬레이션 이름을 입력하세요: ").strip()
 
   rs = ReverieServer(origin, target)
   rs.open_server()
