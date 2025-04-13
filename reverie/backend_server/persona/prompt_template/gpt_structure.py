@@ -223,9 +223,9 @@ def Bedrock_request(prompt, bedrock_parameter):
     )
     response = json.loads(completion.get('body').read())
     return response.get('completion', '')
-  except: 
-    print ("TOKEN LIMIT EXCEEDED")
-    return "TOKEN LIMIT EXCEEDED"
+  except Exception as e:
+    print(f"Error occurred: {str(e)}")
+    return f"ERROR: {str(e)}"
 
 
 def generate_prompt(curr_input, prompt_lib_file): 
