@@ -16,7 +16,8 @@ def get_bedrock_client():
     """
     bedrock = boto3.client(
         service_name='bedrock-runtime',
-        region_name=os.getenv('AWS_REGION', 'us-west-2'),
+        region_name='us-west-2'
+        # region_name=os.getenv('AWS_REGION', 'us-west-2'),
         # aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
         # aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
     )
@@ -53,11 +54,11 @@ def Bedrock_request(prompt):
         
         # Parse the response
         response_body = json.loads(response.get('body').read())
-        return response_body.get('completion')
+        return response_body.get('completion', '')
 
     except Exception as e:
         print("Bedrock API ERROR:", e)
-        return "Bedrock API ERROR"
+        return "Error: Failed to get response from Bedrock"
 
 # Your existing prompt
 prompt = """
