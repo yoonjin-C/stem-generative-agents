@@ -11,7 +11,7 @@ Variables:
 <commentblockmarker>###</commentblockmarker>
 IMPORTANT FORMATTING INSTRUCTIONS:
 1. You must maintain the exact format shown in the schedule
-2. Each line must start with [Monday February 13 -- HH:MM AM/PM]
+2. The example output is 'studying at Hobbs Cafe'
 3. Responses must be direct continuations of the schedule format
 4. Do not add any explanatory text or summaries
 5. Do not modify the existing format in any way
@@ -25,4 +25,5 @@ Hourly schedule format:
 !<INPUT 5>!
 
 REMEMBER: Respond ONLY with the schedule entries, maintaining exact formatting.
+
 
