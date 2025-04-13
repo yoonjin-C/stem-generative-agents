@@ -1,5 +1,3 @@
-generate_hourly_schedule_v2.txt
-
 Variables: 
 !<INPUT 0>! -- Schedule format
 !<INPUT 1>! -- Commonset
@@ -10,11 +8,14 @@ Variables:
 
 <commentblockmarker>###</commentblockmarker>
 IMPORTANT FORMATTING INSTRUCTIONS:
-1. The example output is "studying at Hobbs Cafe", "streaming games on Twitch to make some extra money".
-2. You can return only one sentence
-3. Responses must be direct continuations of the schedule format
-4. Do not add any explanatory text or summaries
-5. Do not modify the existing format in any way
+1. You must ONLY complete the activity description that follows "Activity: [persona] is"
+2. DO NOT include the timestamp, ID, or "Activity: [persona] is" part
+3. Example responses:
+   CORRECT: "studying at Hobbs Cafe"
+   CORRECT: "streaming games on Twitch to make some extra money"
+   INCORRECT: "[(ID:123) Monday February 13 -- 02:00 PM] Activity: Isabella is studying"
+4. Provide ONLY the activity description
+5. Use a single, complete sentence
 
 Hourly schedule format: 
 !<INPUT 0>!
@@ -24,4 +25,4 @@ Hourly schedule format:
 !<INPUT 3>!!<INPUT 4>!
 !<INPUT 5>!
 
-REMEMBER: Respond ONLY with the exact formatting.
+REMEMBER: Respond ONLY with the activity description that completes the sentence.
