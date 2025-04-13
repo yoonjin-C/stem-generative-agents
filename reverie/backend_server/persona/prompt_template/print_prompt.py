@@ -70,21 +70,21 @@ def print_run_prompts(prompt_template=None,
 #         print(f"Error formatting Bedrock response: {e}")
 #         return response
 
-# def run_gpt_prompt(prompt, gpt_param=None):
+# def run_gpt_prompt(prompt, bedrock_param=None):
 #     """
 #     Replacement for GPT prompt runner that uses Bedrock instead.
 #     Maintains similar interface to minimize impact on existing code.
 #     """
-#     if gpt_param is None:
-#         gpt_param = {
+#     if bedrock_param is None:
+#         bedrock_param = {
 #             "temperature": 0.7,
 #             "max_tokens": 2000
 #         }
     
 #     response = Bedrock_request(
 #         prompt,
-#         # temperature=gpt_param.get("temperature", 0.7),
-#         # max_tokens=gpt_param.get("max_tokens", 2000)
+#         # temperature=bedrock_param.get("temperature", 0.7),
+#         # max_tokens=bedrock_param.get("max_tokens", 2000)
 #     )
     
 #     return format_bedrock_response(response)

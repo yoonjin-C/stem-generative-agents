@@ -32,7 +32,7 @@ def generate_focal_points(persona, n=3):
   for node in nodes[-1*persona.scratch.importance_ele_n:]: 
     statements += node.embedding_key + "\n"
 
-  return run_gpt_prompt_focal_pt(persona, statements, n)[0]
+  return run_bedrock_prompt_focal_pt(persona, statements, n)[0]
 
 
 def generate_insights_and_evidence(persona, nodes, n=5): 
@@ -42,7 +42,7 @@ def generate_insights_and_evidence(persona, nodes, n=5):
   for count, node in enumerate(nodes): 
     statements += f'{str(count)}. {node.embedding_key}\n'
 
-  ret = run_gpt_prompt_insight_and_guidance(persona, statements, n)[0]
+  ret = run_bedrock_prompt_insight_and_guidance(persona, statements, n)[0]
 
   print (ret)
   try: 
@@ -67,7 +67,7 @@ def generate_action_event_triple(act_desp, persona):
     "🧈🍞"
   """
   if debug: print ("GNS FUNCTION: <generate_action_event_triple>")
-  return run_gpt_prompt_event_triple(act_desp, persona)[0]
+  return run_bedrock_prompt_event_triple(act_desp, persona)[0]
 
 
 def generate_poig_score(persona, event_type, description): 
@@ -77,21 +77,21 @@ def generate_poig_score(persona, event_type, description):
     return 1
 
   if event_type == "event" or event_type == "thought": 
-    return run_gpt_prompt_event_poignancy(persona, description)[0]
+    return run_bedrock_prompt_event_poignancy(persona, description)[0]
   elif event_type == "chat": 
-    return run_gpt_prompt_chat_poignancy(persona, 
+    return run_bedrock_prompt_chat_poignancy(persona, 
                            persona.scratch.act_description)[0]
 
 
 
 def generate_planning_thought_on_convo(persona, all_utt):
   if debug: print ("GNS FUNCTION: <generate_planning_thought_on_convo>")
-  return run_gpt_prompt_planning_thought_on_convo(persona, all_utt)[0]
+  return run_bedrock_prompt_planning_thought_on_convo(persona, all_utt)[0]
 
 
 def generate_memo_on_convo(persona, all_utt):
   if debug: print ("GNS FUNCTION: <generate_memo_on_convo>")
-  return run_gpt_prompt_memo_on_convo(persona, all_utt)[0]
+  return run_bedrock_prompt_memo_on_convo(persona, all_utt)[0]
 
 
 

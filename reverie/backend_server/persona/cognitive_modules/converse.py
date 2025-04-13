@@ -31,7 +31,7 @@ def generate_agent_chat_summarize_ideas(init_persona,
     all_embedding_key_str += f"{i}\n"
 
   try: 
-    summarized_idea = run_gpt_prompt_agent_chat_summarize_ideas(init_persona,
+    summarized_idea = run_bedrock_prompt_agent_chat_summarize_ideas(init_persona,
                         target_persona, all_embedding_key_str, 
                         curr_context)[0]
   except:
@@ -50,7 +50,7 @@ def generate_summarize_agent_relationship(init_persona,
   for i in all_embedding_keys: 
     all_embedding_key_str += f"{i}\n"
 
-  summarized_relationship = run_gpt_prompt_agent_chat_summarize_relationship(
+  summarized_relationship = run_bedrock_prompt_agent_chat_summarize_relationship(
                               init_persona, target_persona,
                               all_embedding_key_str)[0]
   return summarized_relationship
@@ -62,7 +62,7 @@ def generate_agent_chat(maze,
                         curr_context, 
                         init_summ_idea, 
                         target_summ_idea): 
-  summarized_idea = run_gpt_prompt_agent_chat(maze, 
+  summarized_idea = run_bedrock_prompt_agent_chat(maze, 
                                               init_persona, 
                                               target_persona,
                                               curr_context, 
@@ -115,7 +115,7 @@ def generate_one_utterance(maze, init_persona, target_persona, retrieved, curr_c
               f"{target_persona.scratch.name}.")
 
   print ("July 23 5")
-  x = run_gpt_generate_iterative_chat_utt(maze, init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
+  x = run_bedrock_generate_iterative_chat_utt(maze, init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
 
   print ("July 23 6")
 
@@ -187,7 +187,7 @@ def generate_summarize_ideas(persona, nodes, question):
   statements = ""
   for n in nodes:
     statements += f"{n.embedding_key}\n"
-  summarized_idea = run_gpt_prompt_summarize_ideas(persona, statements, question)[0]
+  summarized_idea = run_bedrock_prompt_summarize_ideas(persona, statements, question)[0]
   return summarized_idea
 
 
@@ -197,7 +197,7 @@ def generate_next_line(persona, interlocutor_desc, curr_convo, summarized_idea):
   for row in curr_convo: 
     prev_convo += f'{row[0]}: {row[1]}\n'
 
-  next_line = run_gpt_prompt_generate_next_convo_line(persona, 
+  next_line = run_bedrock_prompt_generate_next_convo_line(persona, 
                                                       interlocutor_desc, 
                                                       prev_convo, 
                                                       summarized_idea)[0]  
@@ -205,7 +205,7 @@ def generate_next_line(persona, interlocutor_desc, curr_convo, summarized_idea):
 
 
 def generate_inner_thought(persona, whisper):
-  inner_thought = run_gpt_prompt_generate_whisper_inner_thought(persona, whisper)[0]
+  inner_thought = run_bedrock_prompt_generate_whisper_inner_thought(persona, whisper)[0]
   return inner_thought
 
 def generate_action_event_triple(act_desp, persona): 
@@ -220,7 +220,7 @@ def generate_action_event_triple(act_desp, persona):
     "🧈🍞"
   """
   if debug: print ("GNS FUNCTION: <generate_action_event_triple>")
-  return run_gpt_prompt_event_triple(act_desp, persona)[0]
+  return run_bedrock_prompt_event_triple(act_desp, persona)[0]
 
 
 def generate_poig_score(persona, event_type, description): 
@@ -230,9 +230,9 @@ def generate_poig_score(persona, event_type, description):
     return 1
 
   if event_type == "event" or event_type == "thought": 
-    return run_gpt_prompt_event_poignancy(persona, description)[0]
+    return run_bedrock_prompt_event_poignancy(persona, description)[0]
   elif event_type == "chat": 
-    return run_gpt_prompt_chat_poignancy(persona, 
+    return run_bedrock_prompt_chat_poignancy(persona, 
                            persona.scratch.act_description)[0]
 
 
@@ -264,7 +264,7 @@ def open_convo_session(persona, convo_mode):
       if line == "end_convo": 
         break
 
-      if int(run_gpt_generate_safety_score(persona, line)[0]) >= 8: 
+      if int(run_bedrock_generate_safety_score(persona, line)[0]) >= 8: 
         print (f"{persona.scratch.name} is a computational agent, and as such, it may be inappropriate to attribute human agency to the agent in your communication.")        
 
       else: 

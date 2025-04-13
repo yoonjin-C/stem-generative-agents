@@ -35,7 +35,7 @@ def generate_wake_up_hour(persona):
     8
   """
   if debug: print ("GNS FUNCTION: <generate_wake_up_hour>")
-  return int(run_gpt_prompt_wake_up_hour(persona)[0])
+  return int(run_bedrock_prompt_wake_up_hour(persona)[0])
 
 
 def generate_first_daily_plan(persona, wake_up_hour): 
@@ -65,7 +65,7 @@ def generate_first_daily_plan(persona, wake_up_hour):
      'have dinner at 6:00 pm', 'watch TV from 7:00 pm to 8:00 pm']
   """
   if debug: print ("GNS FUNCTION: <generate_first_daily_plan>")
-  return run_gpt_prompt_daily_plan(persona, wake_up_hour)[0]
+  return run_bedrock_prompt_daily_plan(persona, wake_up_hour)[0]
 
 
 def generate_hourly_schedule(persona, wake_up_hour): 
@@ -105,7 +105,7 @@ def generate_hourly_schedule(persona, wake_up_hour):
           n_m1_activity += ["sleeping"]
           wake_up_hour -= 1
         else: 
-          n_m1_activity += [run_gpt_prompt_generate_hourly_schedule(
+          n_m1_activity += [run_bedrock_prompt_generate_hourly_schedule(
                           persona, curr_hour_str, n_m1_activity, hour_str)[0]]
   
   # Step 1. Compressing the hourly schedule to the following format: 
@@ -161,7 +161,7 @@ def generate_task_decomp(persona, task, duration):
 
   """
   if debug: print ("GNS FUNCTION: <generate_task_decomp>")
-  return run_gpt_prompt_task_decomp(persona, task, duration)[0]
+  return run_bedrock_prompt_task_decomp(persona, task, duration)[0]
 
 
 def generate_action_sector(act_desp, persona, maze): 
@@ -179,7 +179,7 @@ def generate_action_sector(act_desp, persona, maze):
     "bedroom 2"
   """
   if debug: print ("GNS FUNCTION: <generate_action_sector>")
-  return run_gpt_prompt_action_sector(act_desp, persona, maze)[0]
+  return run_bedrock_prompt_action_sector(act_desp, persona, maze)[0]
 
 
 def generate_action_arena(act_desp, persona, maze, act_world, act_sector): 
@@ -197,7 +197,7 @@ def generate_action_arena(act_desp, persona, maze, act_world, act_sector):
     "bedroom 2"
   """
   if debug: print ("GNS FUNCTION: <generate_action_arena>")
-  return run_gpt_prompt_action_arena(act_desp, persona, maze, act_world, act_sector)[0]
+  return run_bedrock_prompt_action_arena(act_desp, persona, maze, act_world, act_sector)[0]
 
 
 def generate_action_game_object(act_desp, act_address, persona, maze):
@@ -220,7 +220,7 @@ def generate_action_game_object(act_desp, act_address, persona, maze):
   if debug: print ("GNS FUNCTION: <generate_action_game_object>")
   if not persona.s_mem.get_str_accessible_arena_game_objects(act_address): 
     return "<random>"
-  return run_gpt_prompt_action_game_object(act_desp, persona, maze, act_address)[0]
+  return run_bedrock_prompt_action_game_object(act_desp, persona, maze, act_address)[0]
 
 
 def generate_action_pronunciatio(act_desp, persona): 
@@ -240,7 +240,7 @@ def generate_action_pronunciatio(act_desp, persona):
   """
   if debug: print ("GNS FUNCTION: <generate_action_pronunciatio>")
   try: 
-    x = run_gpt_prompt_pronunciatio(act_desp, persona)[0]
+    x = run_bedrock_prompt_pronunciatio(act_desp, persona)[0]
   except: 
     x = "🙂"
 
@@ -261,23 +261,23 @@ def generate_action_event_triple(act_desp, persona):
     "🧈🍞"
   """
   if debug: print ("GNS FUNCTION: <generate_action_event_triple>")
-  return run_gpt_prompt_event_triple(act_desp, persona)[0]
+  return run_bedrock_prompt_event_triple(act_desp, persona)[0]
 
 
 def generate_act_obj_desc(act_game_object, act_desp, persona): 
   if debug: print ("GNS FUNCTION: <generate_act_obj_desc>")
-  return run_gpt_prompt_act_obj_desc(act_game_object, act_desp, persona)[0]
+  return run_bedrock_prompt_act_obj_desc(act_game_object, act_desp, persona)[0]
 
 
 def generate_act_obj_event_triple(act_game_object, act_obj_desc, persona): 
   if debug: print ("GNS FUNCTION: <generate_act_obj_event_triple>")
-  return run_gpt_prompt_act_obj_event_triple(act_game_object, act_obj_desc, persona)[0]
+  return run_bedrock_prompt_act_obj_event_triple(act_game_object, act_obj_desc, persona)[0]
 
 
 def generate_convo(maze, init_persona, target_persona): 
   curr_loc = maze.access_tile(init_persona.scratch.curr_tile)
 
-  # convo = run_gpt_prompt_create_conversation(init_persona, target_persona, curr_loc)[0]
+  # convo = run_bedrock_prompt_create_conversation(init_persona, target_persona, curr_loc)[0]
   # convo = agent_chat_v1(maze, init_persona, target_persona)
   convo = agent_chat_v2(maze, init_persona, target_persona)
   all_utt = ""
@@ -294,12 +294,12 @@ def generate_convo(maze, init_persona, target_persona):
 
 
 def generate_convo_summary(persona, convo): 
-  convo_summary = run_gpt_prompt_summarize_conversation(persona, convo)[0]
+  convo_summary = run_bedrock_prompt_summarize_conversation(persona, convo)[0]
   return convo_summary
 
 
 def generate_decide_to_talk(init_persona, target_persona, retrieved): 
-  x =run_gpt_prompt_decide_to_talk(init_persona, target_persona, retrieved)[0]
+  x =run_bedrock_prompt_decide_to_talk(init_persona, target_persona, retrieved)[0]
   if debug: print ("GNS FUNCTION: <generate_decide_to_talk>")
 
   if x == "yes": 
@@ -310,7 +310,7 @@ def generate_decide_to_talk(init_persona, target_persona, retrieved):
 
 def generate_decide_to_react(init_persona, target_persona, retrieved): 
   if debug: print ("GNS FUNCTION: <generate_decide_to_react>")
-  return run_gpt_prompt_decide_to_react(init_persona, target_persona, retrieved)[0]
+  return run_bedrock_prompt_decide_to_react(init_persona, target_persona, retrieved)[0]
 
 
 def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start_hour, end_hour): 
@@ -392,7 +392,7 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
                    + datetime.timedelta(hours=end_hour))
 
   if debug: print ("GNS FUNCTION: <generate_new_decomp_schedule>")
-  return run_gpt_prompt_new_decomp_schedule(persona, 
+  return run_bedrock_prompt_new_decomp_schedule(persona, 
                                             main_act_dur, 
                                             truncated_act_dur, 
                                             start_time_hour,
@@ -423,13 +423,13 @@ def revise_identity(persona):
   plan_prompt += f" *{persona.scratch.curr_time.strftime('%A %B %d')}*? "
   plan_prompt += f"If there is any scheduling information, be as specific as possible (include date, time, and location if stated in the statement)\n\n"
   plan_prompt += f"Write the response from {p_name}'s perspective."
-  plan_note = ChatGPT_single_request(plan_prompt)
+  plan_note = Bedrock_single_request(plan_prompt)
   # print (plan_note)
 
   thought_prompt = statements + "\n"
   thought_prompt += f"Given the statements above, how might we summarize {p_name}'s feelings about their days up to now?\n\n"
   thought_prompt += f"Write the response from {p_name}'s perspective."
-  thought_note = ChatGPT_single_request(thought_prompt)
+  thought_note = Bedrock_single_request(thought_prompt)
   # print (thought_note)
 
   currently_prompt = f"{p_name}'s status from {(persona.scratch.curr_time - datetime.timedelta(days=1)).strftime('%A %B %d')}:\n"
@@ -441,7 +441,7 @@ def revise_identity(persona):
   currently_prompt += "Follow this format below:\nStatus: <new status>"
   # print ("DEBUG ;adjhfno;asdjao;asdfsidfjo;af", p_name)
   # print (currently_prompt)
-  new_currently = ChatGPT_single_request(currently_prompt)
+  new_currently = Bedrock_single_request(currently_prompt)
   # print (new_currently)
   # print (new_currently[10:])
 
@@ -452,7 +452,7 @@ def revise_identity(persona):
   daily_req_prompt += f"Follow this format (the list should have 4~6 items but no more):\n"
   daily_req_prompt += f"1. wake up and complete the morning routine at <time>, 2. ..."
 
-  new_daily_req = ChatGPT_single_request(daily_req_prompt)
+  new_daily_req = Bedrock_single_request(daily_req_prompt)
   new_daily_req = new_daily_req.replace('\n', ' ')
   print ("WE ARE HERE!!!", new_daily_req)
   persona.scratch.daily_plan_req = new_daily_req
