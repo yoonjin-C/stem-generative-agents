@@ -208,20 +208,20 @@ def GPT_request(prompt, gpt_parameter):
   """
   temp_sleep()
   try: 
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
                 model=gpt_parameter["engine"],
-                prompt=prompt,
-                temperature=gpt_parameter["temperature"],
+                messages=[{"role": "system", "content": prompt}],
+                temperature=gpt_parameter["temperature"],                    
                 max_tokens=gpt_parameter["max_tokens"],
                 top_p=gpt_parameter["top_p"],
                 frequency_penalty=gpt_parameter["frequency_penalty"],
                 presence_penalty=gpt_parameter["presence_penalty"],
                 stream=gpt_parameter["stream"],
                 stop=gpt_parameter["stop"],)
-    return response.choices[0].text
-  except: 
-    print ("TOKEN LIMIT EXCEEDED")
-    return "TOKEN LIMIT EXCEEDED"
+    return response["choices"][0]["message"]["content"]
+  except Exception as e:
+     print(f"Error occurred: {str(e)}")
+     return f"ERROR: {str(e)}"
 
 
 def generate_prompt(curr_input, prompt_lib_file): 
