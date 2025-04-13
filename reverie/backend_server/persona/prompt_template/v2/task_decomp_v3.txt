@@ -12,6 +12,14 @@ Variables:
 
 <commentblockmarker>###</commentblockmarker>
 Describe subtasks in 5 min increments. 
+  OUTPUT: 
+    a list of list where the inner list contains the decomposed task 
+    description and the number of minutes the task is supposed to last. 
+  EXAMPLE OUTPUT must be like this: 
+    [['going to the bathroom', 5], ['getting dressed', 5], 
+     ['eating breakfast', 15], ['checking her email', 5], 
+     ['getting her supplies ready for the day', 15], 
+     ['starting to work on her painting', 15]] 
 ---
 Name: Kelly Bronson
 Age: 35
