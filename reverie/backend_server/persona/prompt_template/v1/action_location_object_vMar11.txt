@@ -10,6 +10,8 @@ Variables:
 !<INPUT 8>! -- Persona's current sector
 
 <commentblockmarker>###</commentblockmarker>
+CRITICAL INSTRUCTION: You MUST ONLY choose from the options listed in (MUST pick one of {...})
+
 Jane Anderson is in kitchen in Jane Anderson's house.
 Jane Anderson is going to Jane Anderson's house that has the following areas: {kitchen,  bedroom, bathroom}
 Stay in the current area if the activity can be done there. Never go into other people's rooms unless necessary.
@@ -25,9 +27,8 @@ Answer: {cafe}
 
 !<INPUT 0>! is going to !<INPUT 1>! that has the following areas: {!<INPUT 2>!}
 IMPORTANT INSTRUCTIONS:
-1. You MUST ONLY choose from the areas listed in (MUST pick one of {...})
-2. NEVER suggest areas that are not in the given options.
-3. NEVER go into other people's rooms unless necessary.
-4. Stay in the current area if the activity can be done there.
+* NEVER suggest areas that are not in the given options.
+* NEVER go into other people's rooms unless necessary.
+* Stay in the current area if the activity can be done there.
 !<INPUT 3>! is !<INPUT 4>!. For !<INPUT 5>!, !<INPUT 6>! should go to the following area in !<INPUT 7>! (MUST pick one of {!<INPUT 8>!}):
 Answer: {
