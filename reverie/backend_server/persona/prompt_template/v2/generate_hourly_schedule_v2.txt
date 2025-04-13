@@ -9,6 +9,13 @@ Variables:
 !<INPUT 5>! -- prompt_ending
 
 <commentblockmarker>###</commentblockmarker>
+IMPORTANT FORMATTING INSTRUCTIONS:
+1. You must maintain the exact format shown in the schedule
+2. Each line must start with [Monday February 13 -- HH:MM AM/PM]
+3. Responses must be direct continuations of the schedule format
+4. Do not add any explanatory text or summaries
+5. Do not modify the existing format in any way
+
 Hourly schedule format: 
 !<INPUT 0>!
 ===
@@ -16,3 +23,6 @@ Hourly schedule format:
 !<INPUT 2>!
 !<INPUT 3>!!<INPUT 4>!
 !<INPUT 5>!
+
+REMEMBER: Respond ONLY with the schedule entries, maintaining exact formatting.
+
