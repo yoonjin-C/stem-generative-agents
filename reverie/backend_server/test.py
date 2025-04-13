@@ -22,7 +22,7 @@ def get_bedrock_client():
     )
     return bedrock
 
-def bedrock_request(prompt):
+def Bedrock_request(prompt):
     """
     Given a prompt, make a request to Amazon Bedrock server and returns the response.
     ARGS:
@@ -83,7 +83,7 @@ Maria Lopez: "
 Output the response to the prompt above in json. The output should be a list of list where the inner lists are in the form of ["<Name>", "<Utterance>"]. Output multiple utterances in the conversation until the conversation comes to a natural conclusion.
 """
 
-print(bedrock_request(prompt))
+print(Bedrock_request(prompt))
 
 
 
