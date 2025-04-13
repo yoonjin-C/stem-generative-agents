@@ -236,7 +236,7 @@ def Bedrock_request(prompt, bedrock_parameter):
         "max_tokens": bedrock_parameter["max_tokens"],
         "temperature": bedrock_parameter["temperature"],
         "top_p": bedrock_parameter["top_p"],
-        "stop_sequences": bedrock_parameter["stop"] if "stop" in bedrock_parameter else [],
+        "stop_sequences": bedrock_parameter["stop"] if "stop" in bedrock_parameter else ["\n"],
         "messages": [
                     {
                         "role": "user",
