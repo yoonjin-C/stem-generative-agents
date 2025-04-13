@@ -718,8 +718,38 @@ def run_bedrock_prompt_action_arena(action_description,
         except Exception as e:
             print(f"Clean up error: {e}")
             return get_fail_safe()
+        try:
+            # 유효한 선택지 추출
+            x = f"{act_world}:{act_sector}"
+            valid_arenas = [i.strip() for i in persona.s_mem.get_str_accessible_sector_arenas(x).split(",")]
+            
+            # 응답 정리
+            cleaned_response = bedrock_response.split("}")[0].strip()
+            
+            # 응답이 유효한지 확인
+            if cleaned_response not in valid_arenas:
+                print(f"Invalid arena: {cleaned_response}. Valid options: {valid_arenas}")
+                return valid_arenas[0]  # 첫 번째 유효한 선택지 반환
+                
+            return cleaned_response
+        except Exception as e:
+            print(f"Clean up error: {e}")
+            return get_fail_safe()
 
   def __func_validate(bedrock_response, prompt=""): 
+        if len(bedrock_response.strip()) < 1: 
+            return False
+        if "}" not in bedrock_response:
+            return False
+        if "," in bedrock_response: 
+            return False
+            
+        # 추가: 유효한 선택지인지 확인
+        cleaned = bedrock_response.split("}")[0].strip()
+        x = f"{act_world}:{act_sector}"
+        valid_arenas = [i.strip() for i in persona.s_mem.get_str_accessible_sector_arenas(x).split(",")]
+        return cleaned in valid_arenas
+
         if len(bedrock_response.strip()) < 1: 
             return False
         if "}" not in bedrock_response:
@@ -737,7 +767,7 @@ def run_bedrock_prompt_action_arena(action_description,
         # 기본값으로 유효한 선택지 중 첫 번째 반환
         x = f"{act_world}:{act_sector}"
         valid_arenas = [i.strip() for i in persona.s_mem.get_str_accessible_sector_arenas(x).split(",")]
-        return valid_arenas[0] if valid_arenas else "main room"
+        return valid_arenas[0] if valid_arenas else "kitchen"
 
   bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v1/action_location_object_vMar11.txt"
