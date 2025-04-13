@@ -36,7 +36,7 @@ def Bedrock_request(prompt):
         bedrock_client = get_bedrock_client()
 
         # Using Claude model (you can change to other models available in Bedrock)
-        model_id = "anthropic.claude-v2"  # or another model ID from Bedrock
+        model_id = "anthropic.claude-v2:1"  # or another model ID from Bedrock
         
         # Prepare the request body
         body = json.dumps({

@@ -21,7 +21,7 @@ def Bedrock_single_request(prompt):
 
   try:
       completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-v2",
+          modelId="anthropic.claude-v2:1",
           body=json.dumps({
             "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
             "max_tokens_to_sample": 2048,
@@ -52,7 +52,7 @@ def Bedrock4_request(prompt):
 
   try:
     completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-v2",
+          modelId="anthropic.claude-v2:1",
           body=json.dumps({
             "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
             "max_tokens_to_sample": 2048,
@@ -78,7 +78,7 @@ def Bedrock_request(prompt):
   temp_sleep()
   try:
     completion = bedrock.invoke_model(            
-          modelId="anthropic.claude-v2",
+          modelId="anthropic.claude-v2:1",
           body=json.dumps({
             "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
             "max_tokens_to_sample": 2048,
@@ -212,7 +212,7 @@ def Bedrock_request(prompt, bedrock_parameter):
   temp_sleep()
   try: 
     completion = bedrock.invoke_model(
-      modelId="anthropic.claude-v2",
+      modelId="anthropic.claude-v2:1",
       body=json.dumps({
         "prompt": f"\n\nHuman: {prompt}\n\nAssistant:",
         "max_tokens_to_sample": bedrock_parameter["max_tokens"],
