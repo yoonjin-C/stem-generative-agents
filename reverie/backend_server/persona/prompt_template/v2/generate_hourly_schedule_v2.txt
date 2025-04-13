@@ -8,14 +8,13 @@ Variables:
 !<INPUT 4>! -- intermission 2
 !<INPUT 5>! -- prompt_ending
 
-IMPORTANT FORMATTING INSTRUCTIONS:
-1. The example output is 'studying at Hobbs Cafe'
-2. Responses must be direct continuations of the schedule format
-3. Do not add any explanatory text or summaries
-4. Do not modify the existing format in any way
-
 <commentblockmarker>###</commentblockmarker>
-
+IMPORTANT FORMATTING INSTRUCTIONS:
+1. The example output is "studying at Hobbs Cafe", "streaming games on Twitch to make some extra money".
+2. You can return only one sentence
+3. Responses must be direct continuations of the schedule format
+4. Do not add any explanatory text or summaries
+5. Do not modify the existing format in any way
 
 Hourly schedule format: 
 !<INPUT 0>!
@@ -25,3 +24,4 @@ Hourly schedule format:
 !<INPUT 3>!!<INPUT 4>!
 !<INPUT 5>!
 
+REMEMBER: Respond ONLY with the exact formatting.
