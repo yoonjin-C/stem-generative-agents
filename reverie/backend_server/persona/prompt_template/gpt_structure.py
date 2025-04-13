@@ -119,10 +119,10 @@ def Bedrock4_safe_generate_response(prompt,
                                    func_validate=None,
                                    func_clean_up=None,
                                    verbose=False): 
-  prompt = f"\n\nHuman: Bedrock Prompt:\n'''\n{prompt}\n'''\n"
+  prompt = f"\n\nBedrock Prompt:\n'''\n{prompt}\n'''\n"
   prompt += f"Output the response to the prompt above in json. {special_instruction}\n"
   prompt += "Example output json:\n"
-  prompt += f'{{"output": "{str(example_output)}"}}\n\nAssistant:'
+  prompt += f'{{"output": "{str(example_output)}"}}'
   if verbose: 
     print ("Bedrock PROMPT")
     print (prompt)
@@ -157,10 +157,10 @@ def Bedrock_safe_generate_response(prompt,
                                    func_validate=None,
                                    func_clean_up=None,
                                    verbose=False): 
-  prompt = f"\n\nHuman: Bedrock Prompt:\n'''\n{prompt}\n'''\n"
+  prompt = f"\n\nBedrock Prompt:\n'''\n{prompt}\n'''\n"
   prompt += f"Output the response to the prompt above in json. {special_instruction}\n"
   prompt += "Example output json:\n"
-  prompt += f'{{"output": "{str(example_output)}"}}\n\nAssistant:'
+  prompt += f'{{"output": "{str(example_output)}"}}'
   if verbose: 
     print ("Bedrock PROMPT")
     print (prompt)
