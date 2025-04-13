@@ -11,15 +11,22 @@ Variables:
 !<INPUT 7>! -- Persona first names
 
 <commentblockmarker>###</commentblockmarker>
-Describe subtasks in 5 min increments. 
+Describe subtasks in 5 min increments. Never add extra explanation or comment.
   OUTPUT: 
     a list of list where the inner list contains the decomposed task 
     description and the number of minutes the task is supposed to last. 
   EXAMPLE OUTPUT must be like this: 
-    [['going to the bathroom', 5], ['getting dressed', 5], 
-     ['eating breakfast', 15], ['checking her email', 5], 
-     ['getting her supplies ready for the day', 15], 
-     ['starting to work on her painting', 15]] 
+    "1) Klaus is
+TOODOOOOOO
+ waking up and stretching. (duration in minutes: 5, minutes left: 55)
+2) Klaus is making his bed. (duration in minutes: 5, minutes left: 50)
+3) Klaus is brushing his teeth. (duration in minutes: 3, minutes left: 47)
+4) Klaus is washing his face. (duration in minutes: 2, minutes left: 45)
+5) Klaus is getting dressed. (duration in minutes: 10, minutes left: 35)
+6) Klaus is preparing breakfast. (duration in minutes: 10, minutes left: 25)
+7) Klaus is eating breakfast. (duration in minutes: 15, minutes left: 10)
+8) Klaus is washing the dishes. (duration in minutes: 5, minutes left: 5)
+9) Klaus is gathering his research materials for the day. (duration in minutes: 5, minutes left: 0)"
 ---
 Name: Kelly Bronson
 Age: 35
