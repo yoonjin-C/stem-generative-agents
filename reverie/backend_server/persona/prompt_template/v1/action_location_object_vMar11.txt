@@ -31,4 +31,4 @@ IMPORTANT INSTRUCTIONS:
 * NEVER go into other people's rooms unless necessary.
 * Stay in the current area if the activity can be done there.
 !<INPUT 3>! is !<INPUT 4>!. For !<INPUT 5>!, !<INPUT 6>! should go to the following area in !<INPUT 7>! (MUST pick one of {!<INPUT 8>!}):
-Answer: {
+Answer:
