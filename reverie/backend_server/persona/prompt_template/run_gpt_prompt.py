@@ -136,7 +136,7 @@ def run_bedrock_prompt_daily_plan(persona,
 
 
   
-  bedrock_param = {"max_tokens": 500, "temperature": 1, "top_p": 1, "stop": None}
+  bedrock_param = {"max_tokens": 500, "temperature": 1, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v2/daily_planning_v6.txt"
   prompt_input = create_prompt_input(persona, wake_up_hour, test_input)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -242,7 +242,7 @@ def run_bedrock_prompt_generate_hourly_schedule(persona,
   # print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 10") ########
   # bedrock_param = {  "max_tokens": 15, 
   #              "temperature": 0, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v3_ChatGPT/generate_hourly_schedule_v2.txt" ########
   # prompt_input = create_prompt_input(persona, 
   #                                    curr_hour_str, 
@@ -420,7 +420,7 @@ def run_bedrock_prompt_task_decomp(persona,
     fs = ["asleep"]
     return fs
 
-  bedrock_param = {"max_tokens": 1000, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = {"max_tokens": 1000, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v2/task_decomp_v3.txt"
   prompt_input = create_prompt_input(persona, task, duration)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -577,7 +577,7 @@ def run_bedrock_prompt_action_sector(action_description,
   # print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 20") ########
   # bedrock_param = {  "max_tokens": 15, 
   #              "temperature": 0, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v3_ChatGPT/action_location_sector_v2.txt" ########
   # prompt_input = create_prompt_input(action_description, persona, maze)  ########
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -594,7 +594,7 @@ def run_bedrock_prompt_action_sector(action_description,
 
 
 
-  bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v1/action_location_sector_v1.txt"
   prompt_input = create_prompt_input(action_description, persona, maze)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -689,7 +689,7 @@ def run_bedrock_prompt_action_arena(action_description,
     fs = ("kitchen")
     return fs
 
-  bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v1/action_location_object_vMar11.txt"
   prompt_input = create_prompt_input(action_description, persona, maze, act_world, act_sector)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -743,7 +743,7 @@ def run_bedrock_prompt_action_game_object(action_description,
     fs = ("bed")
     return fs
 
-  bedrock_param = { "max_tokens": 15, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = { "max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v1/action_object_v2.txt"
   prompt_input = create_prompt_input(action_description, 
                                      persona, 
@@ -811,7 +811,7 @@ def run_bedrock_prompt_pronunciatio(action_description, persona, verbose=False):
     return True
 
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 4") ########
-  bedrock_param = { "max_tokens": 15, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = { "max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/generate_pronunciatio_v1.txt" ########
   prompt_input = create_prompt_input(action_description)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -899,7 +899,7 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
   # print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 5") ########
   # bedrock_param = {  "max_tokens": 15, 
   #              "temperature": 0, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v3_ChatGPT/generate_event_triple_v1.txt" ########
   # prompt_input = create_prompt_input(action_description, persona)  ########
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -981,7 +981,7 @@ def run_bedrock_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=
     return True 
 
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 6") ########
-  bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/generate_obj_event_v1.txt" ########
   prompt_input = create_prompt_input(act_game_object, act_desp, persona)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -1182,7 +1182,7 @@ def run_bedrock_prompt_new_decomp_schedule(persona,
 
     return ret
 
-  bedrock_param = { "max_tokens": 1000, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = { "max_tokens": 1000, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v2/new_decomp_schedule_v1.txt"
   prompt_input = create_prompt_input(persona, 
                                      main_act_dur, 
@@ -1294,7 +1294,7 @@ def run_bedrock_prompt_decide_to_talk(persona, target_persona, retrieved,test_in
 
 
 
-  bedrock_param = { "max_tokens": 20, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = { "max_tokens": 20, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v2/decide_to_talk_v2.txt"
   prompt_input = create_prompt_input(persona, target_persona, retrieved,
                                      test_input)
@@ -1390,7 +1390,7 @@ def run_bedrock_prompt_decide_to_react(persona, target_persona, retrieved,test_i
     return fs
 
 
-  bedrock_param = {"max_tokens": 20, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = {"max_tokens": 20, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v2/decide_to_react_v1.txt"
   prompt_input = create_prompt_input(persona, target_persona, retrieved,
                                      test_input)
@@ -1531,7 +1531,7 @@ def run_bedrock_prompt_create_conversation(persona, target_persona, curr_loc,
     return convo
 
 
-  bedrock_param = { "max_tokens": 1000, "temperature": 0.7, "top_p": 1, "stop": None}
+  bedrock_param = { "max_tokens": 1000, "temperature": 0.7, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v2/create_conversation_v2.txt"
   prompt_input = create_prompt_input(persona, target_persona, curr_loc, 
                                      test_input)
@@ -1594,7 +1594,7 @@ def run_bedrock_prompt_summarize_conversation(persona, conversation, test_input=
 
 
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 11") ########
-  bedrock_param = { "max_tokens": 15, "temperature": 0, "top_p": 1, "stop": None}
+  bedrock_param = { "max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_conversation_v1.txt" ########
   prompt_input = create_prompt_input(conversation, test_input)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -1610,7 +1610,7 @@ def run_bedrock_prompt_summarize_conversation(persona, conversation, test_input=
 
   # bedrock_param = {  "max_tokens": 50, 
   #              "temperature": 0, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v2/summarize_conversation_v1.txt"
   # prompt_input = create_prompt_input(conversation, test_input)
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -1664,7 +1664,7 @@ def run_bedrock_prompt_extract_keywords(persona, description, test_input=None, v
 
   bedrock_param = { "max_tokens": 50, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/get_keywords_v1.txt"
   prompt_input = create_prompt_input(description, test_input)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -1709,7 +1709,7 @@ def run_bedrock_prompt_keyword_to_thoughts(persona, keyword, concept_summary, te
 
   bedrock_param = {  "max_tokens": 40, 
                "temperature": 0.7, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/keyword_to_thoughts_v1.txt"
   prompt_input = create_prompt_input(persona, keyword, concept_summary)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -1764,7 +1764,7 @@ def run_bedrock_prompt_convo_to_thoughts(persona,
 
   bedrock_param = {  "max_tokens": 40, 
                "temperature": 0.7, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/convo_to_thoughts_v1.txt"
   prompt_input = create_prompt_input(init_persona_name,  
                                     target_persona_name,
@@ -1847,7 +1847,7 @@ def run_bedrock_prompt_event_poignancy(persona, event_description, test_input=No
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 7") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/poignancy_event_v1.txt" ########
   prompt_input = create_prompt_input(persona, event_description)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -1865,7 +1865,7 @@ def run_bedrock_prompt_event_poignancy(persona, event_description, test_input=No
 
   # bedrock_param = {  "max_tokens": 3, 
   #              "temperature": 0, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v2/poignancy_event_v1.txt"
   # prompt_input = create_prompt_input(persona, event_description)
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -1918,7 +1918,7 @@ def run_bedrock_prompt_thought_poignancy(persona, event_description, test_input=
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 8") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/poignancy_thought_v1.txt" ########
   prompt_input = create_prompt_input(persona, event_description)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -1935,7 +1935,7 @@ def run_bedrock_prompt_thought_poignancy(persona, event_description, test_input=
 
   # bedrock_param = {  "max_tokens": 3, 
   #              "temperature": 0, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v2/poignancy_thought_v1.txt"
   # prompt_input = create_prompt_input(persona, event_description)
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -1990,7 +1990,7 @@ def run_bedrock_prompt_chat_poignancy(persona, event_description, test_input=Non
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 9") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/poignancy_chat_v1.txt" ########
   prompt_input = create_prompt_input(persona, event_description)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2008,7 +2008,7 @@ def run_bedrock_prompt_chat_poignancy(persona, event_description, test_input=Non
 
   # bedrock_param = {  "max_tokens": 3, 
   #              "temperature": 0, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v2/poignancy_chat_v1.txt"
   # prompt_input = create_prompt_input(persona, event_description)
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -2066,7 +2066,7 @@ def run_bedrock_prompt_focal_pt(persona, statements, n, test_input=None, verbose
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 12") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/generate_focal_pt_v1.txt" ########
   prompt_input = create_prompt_input(persona, statements, n)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2086,7 +2086,7 @@ def run_bedrock_prompt_focal_pt(persona, statements, n, test_input=None, verbose
 
   bedrock_param = {  "max_tokens": 150, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/generate_focal_pt_v1.txt"
   prompt_input = create_prompt_input(persona, statements, n)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2137,7 +2137,7 @@ def run_bedrock_prompt_insight_and_guidance(persona, statements, n, test_input=N
 
   bedrock_param = {  "max_tokens": 150, 
                "temperature": 0.5, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/insight_and_evidence_v1.txt"
   prompt_input = create_prompt_input(persona, statements, n)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2193,7 +2193,7 @@ def run_bedrock_prompt_agent_chat_summarize_ideas(persona, target_persona, state
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 17") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_chat_ideas_v1.txt" ########
   prompt_input = create_prompt_input(persona, target_persona, statements, curr_context)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2210,7 +2210,7 @@ def run_bedrock_prompt_agent_chat_summarize_ideas(persona, target_persona, state
 
   # bedrock_param = {  "max_tokens": 150, 
   #              "temperature": 0.5, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v2/summarize_chat_ideas_v1.txt"
   # prompt_input = create_prompt_input(persona, target_persona, statements, curr_context)
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -2261,7 +2261,7 @@ def run_bedrock_prompt_agent_chat_summarize_relationship(persona, target_persona
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 18") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_chat_relationship_v2.txt" ########
   prompt_input = create_prompt_input(persona, target_persona, statements)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2277,7 +2277,7 @@ def run_bedrock_prompt_agent_chat_summarize_relationship(persona, target_persona
 
   # bedrock_param = {  "max_tokens": 150, 
   #              "temperature": 0.5, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v2/summarize_chat_relationship_v1.txt"
   # prompt_input = create_prompt_input(persona, target_persona, statements)
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -2389,7 +2389,7 @@ def run_bedrock_prompt_agent_chat(maze, persona, target_persona,
   # print ("HERE JULY 23 -- ----- ") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/agent_chat_v1.txt" ########
   prompt_input = create_prompt_input(persona, target_persona, curr_context, init_summ_idea, target_summ_idea)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2410,7 +2410,7 @@ def run_bedrock_prompt_agent_chat(maze, persona, target_persona,
 
   # bedrock_param = {  "max_tokens": 2000, 
   #              "temperature": 0.7, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v2/agent_chat_v1.txt"
   # prompt_input = create_prompt_input(persona, target_persona, curr_context, init_summ_idea, target_summ_idea)
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -2470,7 +2470,7 @@ def run_bedrock_prompt_summarize_ideas(persona, statements, question, test_input
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 16") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_ideas_v1.txt" ########
   prompt_input = create_prompt_input(persona, statements, question)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2486,7 +2486,7 @@ def run_bedrock_prompt_summarize_ideas(persona, statements, question, test_input
 
   # bedrock_param = {  "max_tokens": 150, 
   #              "temperature": 0.5, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v2/summarize_ideas_v1.txt"
   # prompt_input = create_prompt_input(persona, statements, question)
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -2544,7 +2544,7 @@ def run_bedrock_prompt_generate_next_convo_line(persona, interlocutor_desc, prev
   # print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 15") ########
   # bedrock_param = {  "max_tokens": 15, 
   #              "temperature": 0, "top_p": 1, 
-  #                 "stop": None}
+  #                 "stop": []}
   # prompt_template = "persona/prompt_template/v3_ChatGPT/generate_next_convo_line_v1.txt" ########
   # prompt_input = create_prompt_input(persona, interlocutor_desc, prev_convo, retrieved_summary)  ########
   # prompt = generate_prompt(prompt_input, prompt_template)
@@ -2561,7 +2561,7 @@ def run_bedrock_prompt_generate_next_convo_line(persona, interlocutor_desc, prev
 
   bedrock_param = {  "max_tokens": 250, 
                "temperature": 1, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/generate_next_convo_line_v1.txt"
   prompt_input = create_prompt_input(persona, interlocutor_desc, prev_convo, retrieved_summary)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2601,7 +2601,7 @@ def run_bedrock_prompt_generate_whisper_inner_thought(persona, whisper, test_inp
 
   bedrock_param = {  "max_tokens": 50, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/whisper_inner_thought_v1.txt"
   prompt_input = create_prompt_input(persona, whisper)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2638,7 +2638,7 @@ def run_bedrock_prompt_planning_thought_on_convo(persona, all_utt, test_input=No
 
   bedrock_param = {  "max_tokens": 50, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/planning_thought_on_convo_v1.txt"
   prompt_input = create_prompt_input(persona, all_utt)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2689,7 +2689,7 @@ def run_bedrock_prompt_memo_on_convo(persona, all_utt, test_input=None, verbose=
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 15") ########
   bedrock_param = {  "max_tokens": 15, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v3_ChatGPT/memo_on_convo_v1.txt" ########
   prompt_input = create_prompt_input(persona, all_utt)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2704,7 +2704,7 @@ def run_bedrock_prompt_memo_on_convo(persona, all_utt, test_input=None, verbose=
 
   bedrock_param = {  "max_tokens": 50, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   prompt_template = "persona/prompt_template/v2/memo_on_convo_v1.txt"
   prompt_input = create_prompt_input(persona, all_utt)
   prompt = generate_prompt(prompt_input, prompt_template)
@@ -2758,7 +2758,7 @@ def run_bedrock_generate_safety_score(persona, comment, test_input=None, verbose
   
   bedrock_param = {  "max_tokens": 50, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   return output, [output, prompt, bedrock_param, prompt_input, fail_safe]
 
 
@@ -2873,7 +2873,7 @@ def run_bedrock_generate_iterative_chat_utt(maze, init_persona, target_persona, 
   
   bedrock_param = {  "max_tokens": 50, 
                "temperature": 0, "top_p": 1, 
-                  "stop": None}
+                  "stop": []}
   return output, [output, prompt, bedrock_param, prompt_input, fail_safe]
 
 

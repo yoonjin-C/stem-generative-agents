@@ -218,7 +218,7 @@ def Bedrock_request(prompt, bedrock_parameter):
         "max_tokens_to_sample": bedrock_parameter["max_tokens"],
         "temperature": bedrock_parameter["temperature"],
         "top_p": bedrock_parameter["top_p"],
-        "stop_sequences": bedrock_parameter["stop"] if "stop" in bedrock_parameter else None
+        "stop_sequences": bedrock_parameter["stop"] if "stop" in bedrock_parameter else []
       })
     )
     response = json.loads(completion.get('body').read())
