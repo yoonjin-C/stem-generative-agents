@@ -895,13 +895,12 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
   def __func_clean_up(bedrock_response, prompt=""):
     print("DEBUG - Clean up input:", bedrock_response)
     cr = bedrock_response.strip()
-    cr = [i.strip() for i in cr.split(")")[0].split(",")]
     return cr
 
   def __func_validate(bedrock_response, prompt=""): 
     try: 
       bedrock_response = __func_clean_up(bedrock_response, prompt="")
-      if len(bedrock_response) != 2: 
+      if len(bedrock_response) != 3: 
         return False
     except: return False
     return True 
@@ -951,7 +950,7 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
   fail_safe = get_fail_safe(persona) ########
   output = safe_generate_response(prompt, bedrock_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
-  output = (persona.name, output[0], output[1])
+  output = (persona.name, output[1], output[2])
 
   if debug or verbose: 
     print_run_prompts(prompt_template, persona, bedrock_param, 
