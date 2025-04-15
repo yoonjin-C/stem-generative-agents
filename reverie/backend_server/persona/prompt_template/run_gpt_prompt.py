@@ -1009,6 +1009,7 @@ def run_bedrock_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=
 
   # Bedrock Plugin ===========================================================
   def __chat_func_clean_up(bedrock_response, prompt=""): ############
+    print("DEBUG - Clean up input:", bedrock_response)
     cr = bedrock_response.strip()
     if cr[-1] == ".": cr = cr[:-1]
     return cr
@@ -1016,7 +1017,9 @@ def run_bedrock_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=
   def __chat_func_validate(bedrock_response, prompt=""): ############
     try: 
       bedrock_response = __func_clean_up(bedrock_response, prompt="")
-    except: 
+      print("DEBUG - Validation Input:", bedrock_response)
+    except Exception as e: 
+      print(f"DEBUG - 에러 발생: {str(e)}")
       return False
     return True 
 
