@@ -487,7 +487,10 @@ def run_bedrock_prompt_action_sector(action_description,
                                 maze, 
                                 test_input=None, 
                                 verbose=False):
-
+  act_world = f"{maze.access_tile(persona.scratch.curr_tile)['world']}"
+  x = f"{act_world}:{persona.scratch.living_area.split(':')[1]}"
+  accessible_arena_str = persona.s_mem.get_str_accessible_sector_arenas(x)
+  curr = accessible_arena_str.split(", ")
   def create_prompt_input(action_description, persona, maze, test_input=None): 
     act_world = f"{maze.access_tile(persona.scratch.curr_tile)['world']}"
     
@@ -598,10 +601,7 @@ def run_bedrock_prompt_action_sector(action_description,
 
 
 
-  y = f"{maze.access_tile(persona.scratch.curr_tile)['world']}"
-  x = [i.strip() for i in persona.s_mem.get_str_accessible_sectors(y).split(",")]
-  accessible_arena_str = persona.s_mem.get_str_accessible_sector_arenas(x)
-  curr = accessible_arena_str.split(", ")
+
   bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v1/action_location_sector_v1.txt"
   prompt_input = create_prompt_input(action_description, persona, maze)
@@ -610,6 +610,8 @@ def run_bedrock_prompt_action_sector(action_description,
   fail_safe = get_fail_safe(accessible_arena_str)
   output = safe_generate_response(prompt, bedrock_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
+  y = f"{maze.access_tile(persona.scratch.curr_tile)['world']}"
+  x = [i.strip() for i in persona.s_mem.get_str_accessible_sectors(y).split(",")]
 
   if output not in x: 
     # output = random.choice(x)
