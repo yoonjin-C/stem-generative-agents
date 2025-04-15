@@ -181,7 +181,8 @@ def Bedrock_safe_generate_response(prompt,
         print (curr_bedrock_response)
         print ("~~~~")
 
-    except: 
+    except Exception as e:
+      print(f"DEBUG - error: {str(e)}")  
       pass
 
   return False
