@@ -1104,7 +1104,7 @@ def run_bedrock_prompt_act_obj_event_triple(act_game_object, act_obj_desc, perso
   fail_safe = get_fail_safe(act_game_object)
   output = safe_generate_response(prompt, bedrock_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
-  output = (act_game_object, output[0], output[1])
+  output = (act_game_object, output[1], output[2])
 
   if debug or verbose: 
     print_run_prompts(prompt_template, persona, bedrock_param, 
