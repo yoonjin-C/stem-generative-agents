@@ -673,15 +673,21 @@ def run_bedrock_prompt_action_arena(action_description,
     return prompt_input
 
   def __func_clean_up(bedrock_response, prompt=""):
+    print("DEBUG - Clean up input:", bedrock_response)
     cleaned_response = bedrock_response.split("}")[0]
+    print("DEBUG - Cleaned response:", cleaned_response)
     return cleaned_response
 
   def __func_validate(bedrock_response, prompt=""): 
+    print("DEBUG - Validation Input:", bedrock_response)
     if len(bedrock_response.strip()) < 1: 
+      print("DEBUG - Failed: Empty response")
       return False
     if "}" not in bedrock_response:
+      print("DEBUG - Failed: No closing bracket")
       return False
     if "," in bedrock_response: 
+      print("DEBUG - Failed: Contains comma")
       return False
     return True
   
