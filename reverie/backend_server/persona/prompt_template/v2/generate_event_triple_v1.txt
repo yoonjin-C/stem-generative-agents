@@ -6,10 +6,9 @@ Variables:
 !<INPUT 2>! -- Persona's full name. 
 
 <commentblockmarker>###</commentblockmarker>
-Task: Turn the input into (subject, predicate, object). 
-The value for the output must ONLY contain continual response.
+Task: Turn the input into (subject, predicate, object).
 Never include extra explanation or comments.
-Don't repeat !<INPUT 2>! in answer
+Also, not include extra parentheses or quotes.
 
 Input: Sam Johnson is eating breakfast. 
 Output: (Dolores Murphy, eat, breakfast) 
