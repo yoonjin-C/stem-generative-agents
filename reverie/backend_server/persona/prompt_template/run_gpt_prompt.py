@@ -844,8 +844,9 @@ def run_bedrock_prompt_pronunciatio(action_description, persona, verbose=False):
   fail_safe = get_fail_safe()
   output = Bedrock_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
-  if debug or verbose: 
-    print_run_prompts(prompt_template, persona, bedrock_param, 
+  
+
+  print_run_prompts(prompt_template, persona, bedrock_param, 
                       prompt_input, prompt, output)
   if output != False: 
     return output, [output, prompt, bedrock_param, prompt_input, fail_safe]
