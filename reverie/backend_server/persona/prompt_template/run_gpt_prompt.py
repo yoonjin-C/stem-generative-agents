@@ -697,9 +697,9 @@ def run_bedrock_prompt_action_arena(action_description,
     if len(bedrock_response.strip()) < 1: 
       print("DEBUG - Failed: Empty response")
       return False
-    if "}" not in bedrock_response:
-      print("DEBUG - Failed: No closing bracket")
-      return False
+    # if "}" not in bedrock_response:
+    #   print("DEBUG - Failed: No closing bracket")
+    #   return False
     if "," in bedrock_response: 
       print("DEBUG - Failed: Contains comma")
       return False
