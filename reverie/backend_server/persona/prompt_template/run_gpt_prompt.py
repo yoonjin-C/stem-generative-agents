@@ -487,6 +487,8 @@ def run_bedrock_prompt_action_sector(action_description,
                                 maze, 
                                 test_input=None, 
                                 verbose=False):
+  accessible_arena_str = persona.s_mem.get_str_accessible_sector_arenas(x)
+  curr = accessible_arena_str.split(", ")
   def create_prompt_input(action_description, persona, maze, test_input=None): 
     act_world = f"{maze.access_tile(persona.scratch.curr_tile)['world']}"
     
@@ -557,9 +559,13 @@ def run_bedrock_prompt_action_sector(action_description,
       return False
     return True
   
-  def get_fail_safe(): 
-    fs = ("kitchen")
-    return fs
+  def get_fail_safe(arena_str=None): 
+    if arena_str and ',' in arena_str:
+        return arena_str.split(", ")[0]
+    elif arena_str:
+        return arena_str
+    return arena_str
+
 
 
   # # ChatGPT Plugin ===========================================================
