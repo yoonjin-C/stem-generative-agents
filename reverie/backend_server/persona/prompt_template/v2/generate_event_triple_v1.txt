@@ -7,8 +7,9 @@ Variables:
 
 <commentblockmarker>###</commentblockmarker>
 Task: Turn the input into (subject, predicate, object). 
+The value for the output must ONLY contain continual response.
 Never include extra explanation or comments.
-Also, not include extra parentheses or quotes.
+Don't repeat !<INPUT 2>! in answer
 
 Input: Sam Johnson is eating breakfast. 
 Output: (Dolores Murphy, eat, breakfast) 
@@ -29,4 +30,4 @@ Input: Merrie Morris is running on a treadmill.
 Output: (Merrie Morris, run, treadmill)
 ---
 Input: !<INPUT 0>! is !<INPUT 1>!. 
-Output:
+Output: (!<INPUT 2>!,
