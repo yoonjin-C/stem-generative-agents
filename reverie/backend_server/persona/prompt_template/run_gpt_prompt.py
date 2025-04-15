@@ -915,7 +915,9 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
       print("DEBUG - Validation Input:", bedrock_response)
       if len(bedrock_response) != 3: 
         return False
-    except: return False
+    except Exception as e: 
+      print(f"DEBUG - error: {str(e)}")
+      return False
     return True 
 
   def get_fail_safe(persona): 
