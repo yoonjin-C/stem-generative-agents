@@ -9,8 +9,14 @@ Variables:
 
 <commentblockmarker>###</commentblockmarker>
 Task: We want to understand the state of an object that is being used by someone. 
-Example output is "being fixed".
+
 Never include extra explanation or comments.
+
+Example1: 
+We want to know about book's state. 
+Step 1. Maria is at/using the book.
+Step 2. Describe the book's state: book is being used.
+The ouput must be "being used" in this example.
 
 
 Let's think step by step. 
