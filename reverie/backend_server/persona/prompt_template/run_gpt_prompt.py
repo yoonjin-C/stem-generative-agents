@@ -842,8 +842,11 @@ def run_bedrock_prompt_pronunciatio(action_description, persona, verbose=False):
   example_output = "🛁🧖‍♀️" ########
   special_instruction = "The value for the output must ONLY contain the emojis." ########
   fail_safe = get_fail_safe()
-  output = Bedrock_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
+  # output = Bedrock_safe_generate_response(prompt, bedrock_param, example_output, special_instruction, 3, fail_safe,
+  #                                         __chat_func_validate, __chat_func_clean_up, True)
+  output = safe_generate_response(prompt,bedrock_param, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
+  
   
 
   # print_run_prompts(prompt_template, persona, bedrock_param, 
@@ -1032,8 +1035,11 @@ def run_bedrock_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=
   example_output = "being fixed" ########
   special_instruction = "The output should ONLY contain the phrase that should go in <fill in>." ########
   fail_safe = get_fail_safe(act_game_object) ########
-  output = Bedrock_safe_generate_response(prompt,bedrock_param, example_output, special_instruction, 3, fail_safe,
+  # output = Bedrock_safe_generate_response(prompt,bedrock_param, example_output, special_instruction, 3, fail_safe,
+  #                                         __chat_func_validate, __chat_func_clean_up, True)
+  output = safe_generate_response(prompt,bedrock_param, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
+  
   if debug or verbose: 
     print_run_prompts(prompt_template, persona, bedrock_param, 
                       prompt_input, prompt, output)
