@@ -686,7 +686,9 @@ def run_bedrock_prompt_action_arena(action_description,
 
   def __func_clean_up(bedrock_response, prompt=""):
     print("DEBUG - Clean up input:", bedrock_response)
-    cleaned_response = bedrock_response.split("}")[0]
+    cleaned_response = bedrock_response.strip()
+    cleaned_response = cleaned_response.replace('{', '').replace('}', '')
+    cleaned_response = cleaned_response.strip()    
     print("DEBUG - Cleaned response:", cleaned_response)
     return cleaned_response
 
