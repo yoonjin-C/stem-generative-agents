@@ -908,6 +908,7 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
   def __func_validate(bedrock_response, prompt=""): 
     try: 
       bedrock_response = __func_clean_up(bedrock_response, prompt="")
+      print("DEBUG - Validation Input:", bedrock_response)
       if len(bedrock_response) != 3: 
         return False
     except: return False
