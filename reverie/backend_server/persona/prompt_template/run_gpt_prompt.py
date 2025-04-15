@@ -895,14 +895,17 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
   def __func_clean_up(bedrock_response, prompt=""):
     print("DEBUG - Clean up input:", bedrock_response)
     cr = bedrock_response.strip()
-    cr = [i.strip() for i in cr.split(")")[1].split(",")]
-    print("cr:", cr)
-    return cr
+        # 괄호가 있는 경우 제거
+    if '(' in cr and ')' in cr:
+        cr = cr.split('(')[1].split(')')[0]
+    parts = [p.strip() for p in cr.split(',')]
+    print("DEBUG - Cleaned parts:", parts)
+    return parts
 
   def __func_validate(bedrock_response, prompt=""): 
     try: 
       bedrock_response = __func_clean_up(bedrock_response, prompt="")
-      if len(bedrock_response) != 2: 
+      if len(bedrock_response) != 3: 
         return False
     except: return False
     return True 

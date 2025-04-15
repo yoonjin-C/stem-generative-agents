@@ -10,21 +10,27 @@ Task: Turn the input into (subject, predicate, object).
 Never include extra explanation or comments.
 Also, not include extra parentheses or quotes.
 
+Example1:
 Input: Sam Johnson is eating breakfast. 
-Output: (Dolores Murphy, eat, breakfast) 
+Output: (Sam Johnson, eat, breakfast) 
 --- 
+Example2:
 Input: Joon Park is brewing coffee.
 Output: (Joon Park, brew, coffee)
 ---
+Example3:
 Input: Jane Cook is sleeping. 
 Output: (Jane Cook, is, sleep)
 ---
+Example4:
 Input: Michael Bernstein is writing email on a computer. 
 Output: (Michael Bernstein, write, email)
 ---
+Example4:
 Input: Percy Liang is teaching students in a classroom. 
 Output: (Percy Liang, teach, students)
 ---
+Example5:
 Input: Merrie Morris is running on a treadmill. 
 Output: (Merrie Morris, run, treadmill)
 ---
