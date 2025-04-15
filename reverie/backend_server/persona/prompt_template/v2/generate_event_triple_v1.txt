@@ -6,7 +6,7 @@ Variables:
 !<INPUT 2>! -- Persona's full name. 
 
 <commentblockmarker>###</commentblockmarker>
-Task: Turn the input into (subject, predicate, object).
+Task: Turn the input into 3 parts.
 Never include extra explanation or comments.
 Also, not include extra parentheses or quotes.
 
