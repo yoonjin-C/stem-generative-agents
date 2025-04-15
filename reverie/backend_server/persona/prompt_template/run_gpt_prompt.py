@@ -1015,6 +1015,7 @@ def run_bedrock_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=
     return cr
 
   def __chat_func_validate(bedrock_response, prompt=""): ############
+    print("DEBUG - Validation Input:", bedrock_response)
     try: 
       bedrock_response = __func_clean_up(bedrock_response, prompt="")
       print("DEBUG - Validation Input:", bedrock_response)
