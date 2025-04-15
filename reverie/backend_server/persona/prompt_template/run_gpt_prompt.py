@@ -698,7 +698,7 @@ def run_bedrock_prompt_action_arena(action_description,
         return arena_str.split(", ")[0]
     elif arena_str:
         return arena_str
-    return "kitchen"
+    return arena_str
 
   bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v1/action_location_object_vMar11.txt"
