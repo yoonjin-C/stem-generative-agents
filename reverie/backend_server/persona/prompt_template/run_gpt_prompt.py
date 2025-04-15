@@ -487,8 +487,7 @@ def run_bedrock_prompt_action_sector(action_description,
                                 maze, 
                                 test_input=None, 
                                 verbose=False):
-  accessible_arena_str = persona.s_mem.get_str_accessible_sector_arenas(x)
-  curr = accessible_arena_str.split(", ")
+
   def create_prompt_input(action_description, persona, maze, test_input=None): 
     act_world = f"{maze.access_tile(persona.scratch.curr_tile)['world']}"
     
@@ -605,11 +604,13 @@ def run_bedrock_prompt_action_sector(action_description,
   prompt_input = create_prompt_input(action_description, persona, maze)
   prompt = generate_prompt(prompt_input, prompt_template)
 
-  fail_safe = get_fail_safe()
+  fail_safe = get_fail_safe(accessible_arena_str)
   output = safe_generate_response(prompt, bedrock_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
   y = f"{maze.access_tile(persona.scratch.curr_tile)['world']}"
   x = [i.strip() for i in persona.s_mem.get_str_accessible_sectors(y).split(",")]
+  accessible_arena_str = persona.s_mem.get_str_accessible_sector_arenas(x)
+  curr = accessible_arena_str.split(", ")
   if output not in x: 
     # output = random.choice(x)
     output = persona.scratch.living_area.split(":")[1]
