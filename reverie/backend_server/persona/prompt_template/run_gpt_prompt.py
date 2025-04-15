@@ -846,8 +846,8 @@ def run_bedrock_prompt_pronunciatio(action_description, persona, verbose=False):
                                           __chat_func_validate, __chat_func_clean_up, True)
   
 
-  print_run_prompts(prompt_template, persona, bedrock_param, 
-                      prompt_input, prompt, output)
+  # print_run_prompts(prompt_template, persona, bedrock_param, 
+  #                     prompt_input, prompt, output)
   if output != False: 
     return output, [output, prompt, bedrock_param, prompt_input, fail_safe]
   # Bedrock Plugin ===========================================================
