@@ -893,8 +893,10 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
     return prompt_input
   
   def __func_clean_up(bedrock_response, prompt=""):
+    print("DEBUG - Clean up input:", bedrock_response)
     cr = bedrock_response.strip()
-    cr = [i.strip() for i in cr.split(")")[0].split(",")]
+    cr = [i.strip() for i in cr.split(")")[1].split(",")]
+    print("cr:", cr)
     return cr
 
   def __func_validate(bedrock_response, prompt=""): 
