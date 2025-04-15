@@ -260,7 +260,7 @@ def generate_action_event_triple(act_desp, persona):
   EXAMPLE OUTPUT: 
     "🧈🍞"
   """
-  if debug: print ("GNS FUNCTION: <generate_action_event_triple>")
+  if debug: print ("GNS FUNCTION: <generate_action_event_triple-plan>")
   return run_bedrock_prompt_event_triple(act_desp, persona)[0]
 
 

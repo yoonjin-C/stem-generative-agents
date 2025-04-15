@@ -7,6 +7,7 @@ Variables:
 
 <commentblockmarker>###</commentblockmarker>
 Task: Turn the input into (subject, predicate, object). 
+The value for the output must ONLY contain continual response.
 
 Input: Sam Johnson is eating breakfast. 
 Output: (Dolores Murphy, eat, breakfast) 
