@@ -6,6 +6,7 @@ Variables:
 !<INPUT 2>! -- Persona first names
 
 <commentblockmarker>###</commentblockmarker>
+The value for the output must ONLY contain number.
 !<INPUT 0>!
 
 In general, !<INPUT 1>!
