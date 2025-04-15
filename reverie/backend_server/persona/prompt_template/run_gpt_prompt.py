@@ -959,7 +959,7 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
   fail_safe = get_fail_safe(persona) ########
   output = safe_generate_response(prompt, bedrock_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
-  output = (persona.name, output[1], output[2])
+  output = (output[0]+'debug', output[1]+'debug1', output[2]+'debug2')
 
   if debug or verbose: 
     print_run_prompts(prompt_template, persona, bedrock_param, 
