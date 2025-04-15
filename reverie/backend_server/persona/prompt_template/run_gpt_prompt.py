@@ -848,6 +848,9 @@ def run_bedrock_prompt_pronunciatio(action_description, persona, verbose=False):
 
   # print_run_prompts(prompt_template, persona, bedrock_param, 
   #                     prompt_input, prompt, output)
+  if debug or verbose: 
+    print_run_prompts(prompt_template, persona, bedrock_param, 
+                      prompt_input, prompt, output)
   if output != False: 
     return output, [output, prompt, bedrock_param, prompt_input, fail_safe]
   # Bedrock Plugin ===========================================================
@@ -987,6 +990,7 @@ def run_bedrock_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=
     return prompt_input
   
   def __func_clean_up(bedrock_response, prompt=""):
+    print("DEBUG - Clean up input:", bedrock_response)
     cr = bedrock_response.strip()
     if cr[-1] == ".": cr = cr[:-1]
     return cr
@@ -994,6 +998,7 @@ def run_bedrock_prompt_act_obj_desc(act_game_object, act_desp, persona, verbose=
   def __func_validate(bedrock_response, prompt=""): 
     try: 
       bedrock_response = __func_clean_up(bedrock_response, prompt="")
+      print("DEBUG - Validation Input:", bedrock_response)
     except: 
       return False
     return True 
