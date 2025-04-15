@@ -685,9 +685,12 @@ def run_bedrock_prompt_action_arena(action_description,
       return False
     return True
   
-  def get_fail_safe(): 
-    fs = ("kitchen")
-    return fs
+  def get_fail_safe(arena_str=None): 
+    if arena_str and ',' in arena_str:
+        return arena_str.split(", ")[0]
+    elif arena_str:
+        return arena_str
+    return "kitchen"
 
   bedrock_param = {"max_tokens": 15, "temperature": 0, "top_p": 1, "stop": []}
   prompt_template = "persona/prompt_template/v1/action_location_object_vMar11.txt"
