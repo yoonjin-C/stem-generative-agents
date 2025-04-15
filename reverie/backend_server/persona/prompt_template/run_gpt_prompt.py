@@ -720,7 +720,7 @@ def run_bedrock_prompt_action_arena(action_description,
   fail_safe = get_fail_safe(accessible_arena_str)
   output = safe_generate_response(prompt, bedrock_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
-  output = output.strip().lower().replace('{', '').replace('}', '')
+  output = output.strip().replace('{', '').replace('}', '')
   print (output)
   # y = f"{act_world}:{act_sector}"
   # x = [i.strip() for i in persona.s_mem.get_str_accessible_sector_arenas(y).split(",")]
