@@ -6,6 +6,9 @@ poignancy_event_v1.txt
 !<INPUT 3>!: event description
 
 <commentblockmarker>###</commentblockmarker>
+special_instruction = "The output should ONLY contain ONE integer value on the scale of 1 to 10."
+example_output = "5" 
+
 Here is a brief description of !<INPUT 0>!. 
 !<INPUT 1>!
 
