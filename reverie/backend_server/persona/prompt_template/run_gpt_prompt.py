@@ -895,12 +895,8 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
   def __func_clean_up(bedrock_response, prompt=""):
     print("DEBUG - Clean up input:", bedrock_response)
     cr = bedrock_response.strip()
-        # 괄호가 있는 경우 제거
-    if '(' in cr and ')' in cr:
-        cr = cr.split('(')[1].split(')')[0]
-    parts = [p.strip() for p in cr.split(',')]
-    print("DEBUG - Cleaned parts:", parts)
-    return parts[1:]
+    cr = [i.strip() for i in cr.split(")")[0].split(",")]
+    return cr
 
   def __func_validate(bedrock_response, prompt=""): 
     try: 
@@ -955,7 +951,7 @@ def run_bedrock_prompt_event_triple(action_description, persona, verbose=False):
   fail_safe = get_fail_safe(persona) ########
   output = safe_generate_response(prompt, bedrock_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
-  output = (persona.name, output[1], output[3])
+  output = (persona.name, output[0], output[1])
 
   if debug or verbose: 
     print_run_prompts(prompt_template, persona, bedrock_param, 
