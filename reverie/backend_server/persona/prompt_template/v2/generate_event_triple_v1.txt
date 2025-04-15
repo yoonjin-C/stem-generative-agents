@@ -27,11 +27,11 @@ Example4:
 Input: Michael Bernstein is writing email on a computer. 
 Output: (Michael Bernstein, write, email)
 ---
-Example4:
+Example5:
 Input: Percy Liang is teaching students in a classroom. 
 Output: (Percy Liang, teach, students)
 ---
-Example5:
+Example6:
 Input: Merrie Morris is running on a treadmill. 
 Output: (Merrie Morris, run, treadmill)
 ---
