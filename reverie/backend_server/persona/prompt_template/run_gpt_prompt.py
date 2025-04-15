@@ -623,6 +623,8 @@ def run_bedrock_prompt_action_arena(action_description,
                                 maze, act_world, act_sector,
                                 test_input=None, 
                                 verbose=False):
+  x = f"{act_world}:{act_sector}"
+  accessible_arena_str = persona.s_mem.get_str_accessible_sector_arenas(x)
   def create_prompt_input(action_description, persona, maze, act_world, act_sector, test_input=None): 
     prompt_input = []
     # prompt_input += [persona.scratch.get_str_name()]
@@ -703,7 +705,7 @@ def run_bedrock_prompt_action_arena(action_description,
   prompt_input = create_prompt_input(action_description, persona, maze, act_world, act_sector)
   prompt = generate_prompt(prompt_input, prompt_template)
 
-  fail_safe = get_fail_safe()
+  fail_safe = get_fail_safe(accessible_arena_str)
   output = safe_generate_response(prompt, bedrock_param, 5, fail_safe,
                                    __func_validate, __func_clean_up)
   print (output)
