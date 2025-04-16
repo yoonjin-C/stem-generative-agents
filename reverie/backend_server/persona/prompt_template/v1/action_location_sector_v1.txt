@@ -11,6 +11,7 @@ Variables:
 !<INPUT 9>! -- Persona name
 <commentblockmarker>###</commentblockmarker>
 Task -- choose an appropriate area  from the area options for a task at hand. 
+Don't include any other explanation or comments.The value for the output must ONLY contain area.
 
 Sam Kim lives in {Sam Kim's house} that has Sam Kim's room, bathroom, kitchen.
 Sam Kim is currently in {Sam Kim's house} that has Sam Kim's room, bathroom, kitchen. 

@@ -15,7 +15,9 @@ Describe subtasks in 5 min increments. Never add extra explanation or comment.
   OUTPUT: 
     a list of list where the inner list contains the decomposed task 
     description and the number of minutes the task is supposed to last. 
-    Don't include number, name, is at the first sentence.
+    NEVER include '1)', name, is at the first sentence.
+    The first sentence must be like 'waking up and stretching. (duration in minutes: 5, minutes left: 55)'.
+    Other sentences format is like '2) Klaus is making his bed. (duration in minutes: 5, minutes left: 50)'.
   EXAMPLE OUTPUT must be like this: 
     "1) Klaus is
 TOODOOOOOO

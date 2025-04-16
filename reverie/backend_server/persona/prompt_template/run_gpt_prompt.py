@@ -1092,7 +1092,7 @@ def run_bedrock_prompt_act_obj_event_triple(act_game_object, act_obj_desc, perso
   def __func_validate(bedrock_response, prompt=""): 
     try: 
       bedrock_response = __func_clean_up(bedrock_response, prompt="")
-      if len(bedrock_response) != 2: 
+      if len(bedrock_response) != 3: 
         return False
     except Exception as e:
       print(f"DEBUG - error: {str(e)}")
