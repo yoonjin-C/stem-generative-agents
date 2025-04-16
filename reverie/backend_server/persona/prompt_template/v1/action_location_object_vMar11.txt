@@ -37,6 +37,7 @@ IMPORTANT RULES:
 2. SYSTEM WILL FAIL if any other location is chosen
 3. MUST SELECT EXACTLY from: {!<INPUT 8>!}
 4. Never include '{' and must end with '}'
+5. The value for the output must ONLY contain area. DO NOT include any other explanation or comments.
 
 !<INPUT 0>! is going to !<INPUT 1>! that has the following areas: {!<INPUT 2>!}
 !<INPUT 3>! is !<INPUT 4>!. For !<INPUT 5>!, !<INPUT 6>! should go to the following area in !<INPUT 7>! 

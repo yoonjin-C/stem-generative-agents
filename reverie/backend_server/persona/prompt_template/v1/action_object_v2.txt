@@ -3,6 +3,9 @@ Variables:
 !<INPUT 1>! -- Objects available
 
 <commentblockmarker>###</commentblockmarker>
+Don't include any other extra exlpanation or comments. 
+The value for the output must ONLY contain object.
+
 Current activity: sleep in bed
 Objects available: {bed, easel, closet, painting}
 Pick ONE most relevant object from the objects available: bed
