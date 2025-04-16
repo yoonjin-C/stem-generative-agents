@@ -331,6 +331,7 @@ class ReverieServer:
           pass
       
         if env_retrieved: 
+          print(f"DEBUG - Processing step {self.step}")
           # This is where we go through <game_obj_cleanup> to clean up all 
           # object actions that were used in this cylce. 
           for key, val in game_obj_cleanup.items(): 
@@ -415,7 +416,7 @@ class ReverieServer:
 
           # After this cycle, the world takes one step forward, and the 
           # current time moves by <sec_per_step> amount. 
-          self.step += 1 * 60 #sec_per_step
+          self.step += 1 * 6 #sec_per_step
           self.curr_time += datetime.timedelta(seconds=self.sec_per_step)
 
           int_counter -= 1
