@@ -352,8 +352,8 @@ class ReverieServer:
               new_tile = persona.scratch.planned_path[-1]  # 최종 목적지
               persona.scratch.planned_path = []  # 경로 클리어
             else:
-              new_tile = (new_env[persona_name]["x"]*(self.sec_per_step/10), 
-                          new_env[persona_name]["y"]*(self.sec_per_step/10))
+              new_tile = (int(new_env[persona_name]["x"]*(self.sec_per_step/10)), 
+                          int(new_env[persona_name]["y"]*(self.sec_per_step/10)))
 
             # We actually move the persona on the backend tile map here. 
             self.personas_tile[persona_name] = new_tile
