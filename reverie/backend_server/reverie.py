@@ -416,7 +416,7 @@ class ReverieServer:
 
           # After this cycle, the world takes one step forward, and the 
           # current time moves by <sec_per_step> amount. 
-          self.step += 1 * 6 #sec_per_step
+          self.step += 1 
           self.curr_time += datetime.timedelta(seconds=self.sec_per_step)
 
           int_counter -= 1
