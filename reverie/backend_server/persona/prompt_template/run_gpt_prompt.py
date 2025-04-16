@@ -755,7 +755,9 @@ def run_bedrock_prompt_action_game_object(action_description,
     return prompt_input
   
   def __func_validate(bedrock_response, prompt=""): 
+    print(f"DEBUG - Validating response: {bedrock_response}")
     if len(bedrock_response.strip()) < 1: 
+      print("DEBUG - Validation failed: Empty response")
       return False
     return True
 
