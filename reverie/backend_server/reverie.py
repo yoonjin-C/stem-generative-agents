@@ -139,7 +139,8 @@ class ReverieServer:
     # REVERIE SETTINGS PARAMETERS:  
     # <server_sleep> denotes the amount of time that our while loop rests each
     # cycle; this is to not kill our machine. 
-    self.server_sleep = 0.1
+    #UI 반영속도 빠르게 sleep 시간 감소 
+    self.server_sleep = 0.01
 
     # SIGNALING THE FRONTEND SERVER: 
     # curr_sim_code.json contains the current simulation code, and
@@ -277,6 +278,7 @@ class ReverieServer:
       except:
         pass
 
+          
       time.sleep(self.server_sleep * 10)
 
 
@@ -344,8 +346,14 @@ class ReverieServer:
             curr_tile = self.personas_tile[persona_name]
             # <new_tile> is the tile that the persona will move to right now,
             # during this cycle. 
-            new_tile = (new_env[persona_name]["x"], 
-                        new_env[persona_name]["y"])
+            # 이동 거리 증가
+            # 목적지가 있으면 바로 이동
+            if persona.scratch.planned_path:
+              new_tile = persona.scratch.planned_path[-1]  # 최종 목적지
+              persona.scratch.planned_path = []  # 경로 클리어
+            else:
+              new_tile = (new_env[persona_name]["x"]*(self.sec_per_step/10), 
+                          new_env[persona_name]["y"]*(self.sec_per_step/10))
 
             # We actually move the persona on the backend tile map here. 
             self.personas_tile[persona_name] = new_tile
@@ -407,7 +415,7 @@ class ReverieServer:
 
           # After this cycle, the world takes one step forward, and the 
           # current time moves by <sec_per_step> amount. 
-          self.step += 1 * 600 #sec_per_step
+          self.step += 1 * 60 #sec_per_step
           self.curr_time += datetime.timedelta(seconds=self.sec_per_step)
 
           int_counter -= 1
