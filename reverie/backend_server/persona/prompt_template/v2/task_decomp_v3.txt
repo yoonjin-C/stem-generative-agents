@@ -17,20 +17,20 @@ Describe subtasks in 5 min increments. Never add extra explanation or comment.
     description and the number of minutes the task is supposed to last. 
     NEVER include '1)', name, is at the first sentence.
     The first sentence must be like 'waking up and stretching. (duration in minutes: 5, minutes left: 55)'.
-    Other sentences format is like '2) Klaus is making his bed. (duration in minutes: 5, minutes left: 50)'.
+    Other sentences format is like '2) Rachel is making his bed. (duration in minutes: 5, minutes left: 50)'.
   EXAMPLE OUTPUT must be like this: 
-    "1) Klaus is
+    "1) Rachel is
 TOODOOOOOO
 CORRECT example output:
  waking up and stretching. (duration in minutes: 5, minutes left: 55)
-2) Klaus is making his bed. (duration in minutes: 5, minutes left: 50)
-3) Klaus is brushing his teeth. (duration in minutes: 3, minutes left: 47)
-4) Klaus is washing his face. (duration in minutes: 2, minutes left: 45)
-5) Klaus is getting dressed. (duration in minutes: 10, minutes left: 35)
-6) Klaus is preparing breakfast. (duration in minutes: 10, minutes left: 25)
-7) Klaus is eating breakfast. (duration in minutes: 15, minutes left: 10)
-8) Klaus is washing the dishes. (duration in minutes: 5, minutes left: 5)
-9) Klaus is gathering his research materials for the day. (duration in minutes: 5, minutes left: 0)"
+2) Rachel is making his bed. (duration in minutes: 5, minutes left: 50)
+3) Rachel is brushing his teeth. (duration in minutes: 3, minutes left: 47)
+4) Rachel is washing his face. (duration in minutes: 2, minutes left: 45)
+5) Rachel is getting dressed. (duration in minutes: 10, minutes left: 35)
+6) Rachel is preparing breakfast. (duration in minutes: 10, minutes left: 25)
+7) Rachel is eating breakfast. (duration in minutes: 15, minutes left: 10)
+8) Rachel is washing the dishes. (duration in minutes: 5, minutes left: 5)
+9) Rachel is gathering his research materials for the day. (duration in minutes: 5, minutes left: 0)"
 ---
 Name: Kelly Bronson
 Age: 35
