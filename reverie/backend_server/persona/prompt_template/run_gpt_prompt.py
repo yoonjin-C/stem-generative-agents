@@ -2330,7 +2330,7 @@ def run_bedrock_prompt_agent_chat_summarize_relationship(persona, target_persona
   example_output = 'Jane Doe is working on a project' ########
   special_instruction = 'The output should be a string that responds to the question.' ########
   fail_safe = get_fail_safe() ########
-  output = Bedrock_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
+  output = safe_generate_response(prompt, bedrock_param, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
   if output != False: 
     return output, [output, prompt, bedrock_param, prompt_input, fail_safe]

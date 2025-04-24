@@ -6,6 +6,9 @@ Variables:
 !<INPUT 2>! -- target_persona.scratch.name
 
 <commentblockmarker>###</commentblockmarker>
+special_instruction = 'The output should be a string that responds to the question.' 
+example_output = 'Jane Doe is working on a project'
+
 [Statements]
 !<INPUT 0>!
 
