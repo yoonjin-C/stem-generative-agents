@@ -614,9 +614,10 @@ def run_bedrock_prompt_action_sector(action_description,
   y = f"{maze.access_tile(persona.scratch.curr_tile)['world']}"
   x = [i.strip() for i in persona.s_mem.get_str_accessible_sectors(y).split(",")]
 
-  if output not in x: 
-    # output = random.choice(x)
-    output = persona.scratch.living_area.split(":")[1]
+# 응답 반환 에러 확인을 위한 주석 처리
+  # if output not in x: 
+  #   # output = random.choice(x)
+  #   output = persona.scratch.living_area.split(":")[1]
 
   print ("DEBUG", random.choice(x), "------", output)
 
