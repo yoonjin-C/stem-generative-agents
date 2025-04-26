@@ -73,7 +73,7 @@ Character 1: Maria Lopez is working on her physics degree and streaming games on
 Character 2: Klaus Mueller is writing a research paper on the effects of gentrification in low-income communities.
 
 Past Context: 
-138 minutes ago, Maria Lopez and Klaus Mueller were already conversing about conversing about Maria's research paper mentioned by Klaus This context takes place after that conversation.
+138 minutes ago, Maria Lopez and Klaus Mueller were already conversing about Maria's research paper mentioned by Klaus This context takes place after that conversation.
 
 Current Context: Maria Lopez was attending her Physics class (preparing for the next lecture) when Maria Lopez saw Klaus Mueller in the middle of working on his research paper at the library (writing the introduction).
 Maria Lopez is thinking of initating a conversation with Klaus Mueller.
@@ -139,7 +139,7 @@ print(Bedrock_request(prompt))
 # Character 2: Klaus Mueller is writing a research paper on the effects of gentrification in low-income communities.
 
 # Past Context: 
-# 138 minutes ago, Maria Lopez and Klaus Mueller were already conversing about conversing about Maria's research paper mentioned by Klaus This context takes place after that conversation.
+# 138 minutes ago, Maria Lopez and Klaus Mueller were already conversing about Maria's research paper mentioned by Klaus This context takes place after that conversation.
 
 # Current Context: Maria Lopez was attending her Physics class (preparing for the next lecture) when Maria Lopez saw Klaus Mueller in the middle of working on his research paper at the library (writing the introduction).
 # Maria Lopez is thinking of initating a conversation with Klaus Mueller.

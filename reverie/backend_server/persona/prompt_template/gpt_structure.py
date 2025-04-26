@@ -201,6 +201,7 @@ def Bedrock_safe_generate_response_OLD(prompt,
   for i in range(repeat): 
     try: 
       curr_bedrock_response = Bedrock_request(prompt).strip()
+      print("DEBUG - 원본 응답:", curr_bedrock_response)
       if func_validate(curr_bedrock_response, prompt=prompt): 
         return func_clean_up(curr_bedrock_response, prompt=prompt)
       if verbose: 
