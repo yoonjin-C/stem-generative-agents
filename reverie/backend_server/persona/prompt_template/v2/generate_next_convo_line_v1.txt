@@ -10,6 +10,9 @@ Variables:
 !<INPUT 6>! -- agent name
 
 <commentblockmarker>###</commentblockmarker>
+special_instruction = 'The output should be a string that responds to the question.' 
+NEVER include any other extra explanation or comments like 'Jane responds: '.
+
 Here is some basic information about !<INPUT 0>!.
 !<INPUT 1>!
 
@@ -20,4 +23,4 @@ Following is a conversation between !<INPUT 2>! and !<INPUT 3>!.
 
 (Note -- This is the only information that !<INPUT 5>! has: !<INPUT 6>!)
 
-!<INPUT 7>!: "
+!<INPUT 7>!: 

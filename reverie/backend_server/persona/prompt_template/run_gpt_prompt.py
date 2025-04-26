@@ -2529,7 +2529,19 @@ def run_bedrock_prompt_summarize_ideas(persona, statements, question, test_input
 
   # Bedrock Plugin ===========================================================
   def __chat_func_clean_up(bedrock_response, prompt=""): ############
-    return bedrock_response.split('"')[0].strip()
+    # return bedrock_response.split('"')[0].strip()
+    try:
+        # 응답에서 실제 내용 추출
+        if '"' in bedrock_response:
+            # 따옴표 사이의 내용 가져오기
+            parts = bedrock_response.split('"')
+            if len(parts) >= 2:
+                return parts[1].strip()
+        # 따옴표가 없는 경우 전체 응답 반환
+        return bedrock_response.strip()
+    except:
+        # 에러 발생시 원본 응답 반환
+        return bedrock_response.strip()
 
   def __chat_func_validate(bedrock_response, prompt=""): ############
     try: 
@@ -2548,7 +2560,7 @@ def run_bedrock_prompt_summarize_ideas(persona, statements, question, test_input
   example_output = 'Jane Doe is working on a project' ########
   special_instruction = 'The output should be a string that responds to the question.' ########
   fail_safe = get_fail_safe() ########
-  output = Bedrock_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
+  output = safe_generate_response(prompt, bedrock_param, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
   if output != False: 
     return output, [output, prompt, bedrock_param, prompt_input, fail_safe]
@@ -2587,7 +2599,19 @@ def run_bedrock_prompt_generate_next_convo_line(persona, interlocutor_desc, prev
     return prompt_input
   
   def __func_clean_up(bedrock_response, prompt=""):
-    return bedrock_response.split('"')[0].strip()
+    # return bedrock_response.split('"')[0].strip()
+    try:
+        # 응답에서 실제 내용 추출
+        if '"' in bedrock_response:
+            # 따옴표 사이의 내용 가져오기
+            parts = bedrock_response.split('"')
+            if len(parts) >= 2:
+                return parts[1].strip()
+        # 따옴표가 없는 경우 전체 응답 반환
+        return bedrock_response.strip()
+    except:
+        # 에러 발생시 원본 응답 반환
+        return bedrock_response.strip()
 
   def __func_validate(bedrock_response, prompt=""): 
     try: 

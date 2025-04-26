@@ -6,6 +6,9 @@ Variables:
 !<INPUT 2>! -- interviewer question
 
 <commentblockmarker>###</commentblockmarker>
+example_output = 'Jane Doe is working on a project' 
+special_instruction = 'The output should be a string that responds to the question.' 
+NEVER include any other extra explanation or comments like 'Jane responds: '.
 Statements: 
 !<INPUT 0>!
 
@@ -13,4 +16,3 @@ An interviewer said to !<INPUT 1>!:
 "!<INPUT 2>!"
 
 Summarize the Statements that are most relevant to the interviewer's line:
-"
