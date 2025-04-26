@@ -6,6 +6,9 @@ poignancy_chat_v1.txt
 !<INPUT 3>!: event description
 
 <commentblockmarker>###</commentblockmarker>
+example_output = "5" ########
+special_instruction = "The output should ONLY contain ONE integer value on the scale of 1 to 10." ########
+  
 Here is a brief description of !<INPUT 0>!. 
 !<INPUT 1>!
 

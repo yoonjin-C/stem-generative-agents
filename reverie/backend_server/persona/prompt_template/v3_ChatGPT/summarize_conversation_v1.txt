@@ -4,6 +4,9 @@ Variables:
 !<INPUT 0>! -- init_persona_name
 
 <commentblockmarker>###</commentblockmarker>
+
+example_output = "what to eat for lunch" 
+special_instruction = "The output must continue the sentence above by filling in the <fill in> tag. Don't start with 'this is a conversation about...' Just finish the sentence but do not miss any important details (including who are chatting)."
 Conversation: 
 !<INPUT 0>!
 

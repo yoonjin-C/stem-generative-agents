@@ -8,7 +8,7 @@ Variables:
 <commentblockmarker>###</commentblockmarker>
 special_instruction = 'The output should be a string that responds to the question.' 
 example_output = 'Jane Doe is working on a project'
-
+Don't include extra explanation or comments like 'Based on the given statements,~'.
 [Statements]
 !<INPUT 0>!
 

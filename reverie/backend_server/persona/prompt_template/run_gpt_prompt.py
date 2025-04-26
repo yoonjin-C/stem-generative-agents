@@ -547,7 +547,15 @@ def run_bedrock_prompt_action_sector(action_description,
 
   def __func_clean_up(bedrock_response, prompt=""):
     cleaned_response = bedrock_response.split("}")[0]
+    cleaned_response = cleaned_response + "}"
+    cleaned_response = cleaned_response.strip().replace("{", "").replace("}", "")
     return cleaned_response
+    # cleaned = bedrock_response.strip()
+    # if not cleaned.startswith("{"):
+    #   cleaned = "{" + cleaned
+    # if not cleaned.endswith("}"):
+    #   cleaned = cleaned + "}"
+    # return cleaned
 
   def __func_validate(bedrock_response, prompt=""): 
     if len(bedrock_response.strip()) < 1: 
@@ -1661,7 +1669,7 @@ def run_bedrock_prompt_summarize_conversation(persona, conversation, test_input=
   example_output = "conversing about what to eat for lunch" ########
   special_instruction = "The output must continue the sentence above by filling in the <fill in> tag. Don't start with 'this is a conversation about...' Just finish the sentence but do not miss any important details (including who are chatting)." ########
   fail_safe = get_fail_safe() ########
-  output = Bedrock_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
+  output = safe_generate_response(prompt, bedrock_param, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
   if output != False: 
     return output, [output, prompt, bedrock_param, prompt_input, fail_safe]
@@ -2060,7 +2068,7 @@ def run_bedrock_prompt_chat_poignancy(persona, event_description, test_input=Non
   example_output = "5" ########
   special_instruction = "The output should ONLY contain ONE integer value on the scale of 1 to 10." ########
   fail_safe = get_fail_safe() ########
-  output = Bedrock_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,
+  output = safe_generate_response(prompt,bedrock_param, 3, fail_safe,
                                           __chat_func_validate, __chat_func_clean_up, True)
   if output != False: 
     return output, [output, prompt, bedrock_param, prompt_input, fail_safe]

@@ -15,13 +15,13 @@ Describe subtasks in 5 min increments. Never add extra explanation or comment.
   OUTPUT: 
     a list of list where the inner list contains the decomposed task 
     description and the number of minutes the task is supposed to last. 
-    NEVER include '1)', name, is at the first sentence.
+    NEVER include '1)', name, 'is' at the first sentence.
     The first sentence must be like 'waking up and stretching. (duration in minutes: 5, minutes left: 55)'.
     Other sentences format is like '2) Rachel is making his bed. (duration in minutes: 5, minutes left: 50)'.
   EXAMPLE OUTPUT must be like this: 
     "1) Rachel is
 TOODOOOOOO
-CORRECT example output format:
+example output format:
  waking up and stretching. (duration in minutes: 5, minutes left: 55)
 2) Rachel is making his bed. (duration in minutes: 5, minutes left: 50)
 3) Rachel is brushing his teeth. (duration in minutes: 3, minutes left: 47)
@@ -43,8 +43,8 @@ Daily plan requirement: Kelly is planning to teach during the morning and work f
 Today is Saturday May 10. From 08:00am ~09:00am, Kelly is planning on having breakfast, from 09:00am ~ 12:00pm, Kelly is planning on working on the next day's kindergarten lesson plan, and from 12:00 ~ 13pm, Kelly is planning on taking a break. 
 In 5 min increments, list the subtasks Kelly does when Kelly is working on the next day's kindergarten lesson plan from 09:00am ~ 12:00pm (total duration in minutes: 180):
 1) Kelly is 
-INCORRECT Example output format:
-1) Kelly is reviewing the kindergarten curriculum standards. (duration in minutes: 15, minutes left: 165)
+Example output format:
+reviewing the kindergarten curriculum standards. (duration in minutes: 15, minutes left: 165)
 2) Kelly is brainstorming ideas for the lesson. (duration in minutes: 30, minutes left: 135)
 3) Kelly is creating the lesson plan. (duration in minutes: 30, minutes left: 105)
 4) Kelly is creating materials for the lesson. (duration in minutes: 30, minutes left: 75)
