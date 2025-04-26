@@ -2801,6 +2801,16 @@ def run_bedrock_generate_safety_score(persona, comment, test_input=None, verbose
   def __chat_func_clean_up(bedrock_response, prompt=""): 
     bedrock_response = json.loads(bedrock_response)
     return bedrock_response["output"]
+    # try:
+    #     # 응답에서 숫자만 추출
+    #     cleaned = bedrock_response.strip()
+    #     # 숫자가 아닌 경우 기본값 반환
+    #     if not cleaned.isdigit():
+    #         print("잘못된 응답: not a number", cleaned)
+    #         return "1"
+    #     return cleaned
+    # except:
+    #     return "1"
 
   def __chat_func_validate(bedrock_response, prompt=""): 
     try: 
@@ -2812,19 +2822,30 @@ def run_bedrock_generate_safety_score(persona, comment, test_input=None, verbose
       return True
     except:
       return False 
+    # try: 
+    #     # 응답이 숫자인지 확인
+    #     value = bedrock_response.strip()
+    #     if not value.isdigit():
+    #         return False
+    #     # 1-10 범위 확인
+    #     num = int(value)
+    #     return 1 <= num <= 10
+    # except:
+    #     return False 
 
   def get_fail_safe():
-    return None
+    print("get_fail_safe 실행됨")
+    return 1
 
-  print ("11")
+  print ("111")
   prompt_template = "persona/prompt_template/safety/anthromorphosization_v1.txt" 
   prompt_input = create_prompt_input(comment) 
-  print ("22")
+  print ("222")
   prompt = generate_prompt(prompt_input, prompt_template)
   print (prompt)
   fail_safe = get_fail_safe() 
   output = Bedrock_safe_generate_response_OLD(prompt, 3, fail_safe,
-                        __chat_func_validate, __chat_func_clean_up, verbose)
+                        __chat_func_validate, __chat_func_clean_up, True)
   print (output)
   
   bedrock_param = {  "max_tokens": 50, 

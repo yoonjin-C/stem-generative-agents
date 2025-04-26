@@ -198,9 +198,16 @@ def Bedrock_safe_generate_response_OLD(prompt,
     print ("Bedrock PROMPT")
     print (prompt)
 
+  bedrock_parameter = {
+        "max_tokens": 50,
+        "temperature": 0,
+        "top_p": 1,
+        "stop": []
+    }  # 기본 파라미터 추가
+
   for i in range(repeat): 
     try: 
-      curr_bedrock_response = Bedrock_request(prompt).strip()
+      curr_bedrock_response = Bedrock_request(prompt, bedrock_parameter).strip()
       print("DEBUG - 원본 응답:", curr_bedrock_response)
       if func_validate(curr_bedrock_response, prompt=prompt): 
         return func_clean_up(curr_bedrock_response, prompt=prompt)
@@ -209,8 +216,12 @@ def Bedrock_safe_generate_response_OLD(prompt,
         print (curr_bedrock_response)
         print ("~~~~")
 
-    except: 
-      pass
+    except Exception as e: 
+            print("DEBUG - error")
+            # curr_bedrock_response가 정의되지 않았을 수 있으므로 예외 처리에서는 제거
+            if verbose:
+                print(f"Error details: {str(e)}")
+            continue  # pass 대신 continue 사용
   print ("FAIL SAFE TRIGGERED") 
   return fail_safe_response
 
